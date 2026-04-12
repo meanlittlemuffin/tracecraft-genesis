@@ -3,42 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session Replay</title>
+    <title>TraceCraft Genesis</title>
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
     <div class="container">
-        <h1>Session Replay</h1>
+        <h1>TraceCraft Genesis</h1>
         <div class="status" id="status">Ready</div>
+
+        <!-- Stats grid -->
         <div class="stats" id="stats">
             <div class="stat">
-                <span class="label">Clicks:</span>
-                <span class="value" id="clickCount">0</span>
-            </div>
-            <div class="stat">
-                <span class="label">Network:</span>
+                <span class="label">Network</span>
                 <span class="value" id="networkCount">0</span>
             </div>
             <div class="stat">
-                <span class="label">Errors:</span>
+                <span class="label">Clicks</span>
+                <span class="value" id="clickCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Errors</span>
                 <span class="value" id="errorCount">0</span>
             </div>
             <div class="stat">
-                <span class="label">Console:</span>
+                <span class="label">Console</span>
                 <span class="value" id="consoleCount">0</span>
             </div>
+            <div class="stat">
+                <span class="label">Navigation</span>
+                <span class="value" id="navCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Keyboard</span>
+                <span class="value" id="keyCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Scroll</span>
+                <span class="value" id="scrollCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Long Tasks</span>
+                <span class="value" id="longTaskCount">0</span>
+            </div>
         </div>
+
+        <!-- Web Vitals -->
+        <div class="vitals" id="vitals" style="display:none;">
+            <h3>Web Vitals</h3>
+            <div class="vitals-grid">
+                <div class="vital">
+                    <span class="vital-label">LCP</span>
+                    <span class="vital-value" id="lcpValue">-</span>
+                </div>
+                <div class="vital">
+                    <span class="vital-label">CLS</span>
+                    <span class="vital-value" id="clsValue">-</span>
+                </div>
+                <div class="vital">
+                    <span class="vital-label">INP</span>
+                    <span class="vital-value" id="inpValue">-</span>
+                </div>
+                <div class="vital">
+                    <span class="vital-label">TTFB</span>
+                    <span class="vital-value" id="ttfbValue">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recording controls -->
         <div class="buttons">
             <button id="startBtn" class="btn primary">Start Recording</button>
             <button id="stopBtn" class="btn danger" disabled>Stop Recording</button>
-            <button id="testBtn" class="btn secondary">Test Connection</button>
-            <button id="exportBtn" class="btn secondary" disabled>Export JSON</button>
-            <button id="sendApiBtn" class="btn secondary" disabled>Send to API</button>
-            <button id="clearBtn" class="btn secondary" disabled>Clear</button>
         </div>
+
+        <!-- Export / Analysis -->
+        <div class="buttons" id="actionButtons" style="display:none;">
+            <button id="exportBtn" class="btn secondary">Export JSON</button>
+            <button id="analyzeBtn" class="btn accent">Full Analysis</button>
+            <button id="networkBtn" class="btn accent">Network Bottlenecks</button>
+            <button id="bugBtn" class="btn bug">Bug Diagnosis</button>
+            <button id="clearBtn" class="btn secondary">Clear</button>
+        </div>
+
         <div id="apiStatus" class="api-status"></div>
+
+        <!-- Preview -->
         <div id="preview" class="preview" style="display:none;">
-            <h3>Recording Preview</h3>
+            <h3>Recording Summary</h3>
             <pre id="previewData"></pre>
         </div>
     </div>
