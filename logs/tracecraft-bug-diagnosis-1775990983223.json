@@ -1,0 +1,48 @@
+{
+  "rootCause": {
+    "summary": "The server returned an HTTP 500 Internal Server Error when the user accessed the `/status_codes/500` endpoint.",
+    "confidence": "100%",
+    "triggerChain": [
+      "User clicked 'Status Codes' on the homepage.",
+      "User navigated to the Status Codes page.",
+      "User clicked the '500' link on the Status Codes page (inferred).",
+      "Browser requested GET https://the-internet.herokuapp.com/status_codes/500.",
+      "Server responded with HTTP 500 Internal Server Error."
+    ],
+    "evidence": [
+      "The final user interaction (click event at timestamp 1775990958709) occurred on 'pageUrl': 'https://the-internet.herokuapp.com/status_codes/500', indicating the user had successfully navigated to a page explicitly designed to return a 500 status code."
+    ],
+    "fix": "Investigate the server-side application code or infrastructure responsible for handling requests to `/status_codes/500` to identify and resolve the root cause of the 500 error. Ensure proper error handling and logging are in place. (Note: For `the-internet.herokuapp.com`, this behavior is intentional for testing purposes.)"
+  },
+  "bugReport": {
+    "title": "Server returns HTTP 500 Internal Server Error for /status_codes/500 endpoint",
+    "description": "The user encountered an HTTP 500 Internal Server Error when navigating to the `/status_codes/500` page. This indicates a server-side issue prevented the page from loading correctly. While this specific endpoint on `the-internet.herokuapp.com` is designed to demonstrate a 500 error, in a production application, this would represent a critical failure.",
+    "severity": "MEDIUM",
+    "timeline": [
+      "1775990941586: Session started on 'https://the-internet.herokuapp.com/'.",
+      "1775990944941: User clicked 'Broken Images' link.",
+      "1775990952218: User clicked 'Status Codes' link.",
+      "~1775990955000 (inferred): User navigated to 'https://the-internet.herokuapp.com/status_codes/500' (likely by clicking a '500' link on the Status Codes page), and the server responded with HTTP 500.",
+      "1775990958709: User clicked the 'here' link on the 'https://the-internet.herokuapp.com/status_codes/500' page."
+    ],
+    "networkActivity": "One XHR request to 'https://298279967.log.optimizely.com/event' failed with 'status: 0' and 'error: Network error'. This is likely a tracking call and not directly related to the 500 page error. The critical network event (GET /status_codes/500 returning 500) is not explicitly recorded as an XHR but is inferred from the page URL.",
+    "consoleLogs": "No relevant console errors or warnings were recorded.",
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+      "pageUrl": "https://the-internet.herokuapp.com/status_codes/500",
+      "screenSize": "1536x960"
+    }
+  },
+  "reproductionSteps": {
+    "steps": [
+      "Navigate to 'https://the-internet.herokuapp.com/'.",
+      "Click on the 'Status Codes' link from the list.",
+      "On the 'Status Codes' page, click on the '500' link."
+    ],
+    "curlCommands": [
+      "curl -v 'https://the-internet.herokuapp.com/status_codes/500'"
+    ],
+    "expectedBehavior": "In a production application, the page should load successfully with a 200 OK status, or a user-friendly error page should be displayed if a server error occurs, without returning a raw 500 status code directly to the browser.",
+    "actualBehavior": "The server returns an HTTP 500 Internal Server Error, displaying a generic server error page."
+  }
+}

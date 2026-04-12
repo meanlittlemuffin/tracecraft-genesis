@@ -1,0 +1,2174 @@
+{
+  "clicks": [
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://automationexercise.com/",
+      "pageX": 720,
+      "pageY": 42,
+      "target": {
+        "ariaLabel": null,
+        "classes": [],
+        "cssSelector": "#header > div > div > div > div:nth-of-type(2) > div > ul > li:nth-of-type(2) > a",
+        "href": "https://automationexercise.com/products",
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 22,
+          "left": 688,
+          "top": 30,
+          "width": 78
+        },
+        "role": null,
+        "tag": "A",
+        "text": " Products",
+        "type": null
+      },
+      "timestamp": 1775974958496,
+      "x": 720,
+      "y": 42
+    },
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://automationexercise.com/products",
+      "pageX": 641,
+      "pageY": 907,
+      "target": {
+        "ariaLabel": null,
+        "classes": [
+          "btn",
+          "btn-default",
+          "add-to-cart"
+        ],
+        "cssSelector": "html > body > section:nth-of-type(2) > div > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(2) > div > a",
+        "href": null,
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 33,
+          "left": 569,
+          "top": 275,
+          "width": 115
+        },
+        "role": null,
+        "tag": "A",
+        "text": "Add to cart",
+        "type": null
+      },
+      "timestamp": 1775974966434,
+      "x": 641,
+      "y": 298
+    },
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://automationexercise.com/products",
+      "pageX": 756,
+      "pageY": 947,
+      "target": {
+        "ariaLabel": null,
+        "classes": [
+          "btn",
+          "btn-success",
+          "close-modal",
+          "btn-block"
+        ],
+        "cssSelector": "#cartModal > div > div > div:nth-of-type(3) > button",
+        "href": null,
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 40,
+          "left": 630,
+          "top": 316,
+          "width": 245
+        },
+        "role": null,
+        "tag": "BUTTON",
+        "text": "Continue Shopping",
+        "type": null
+      },
+      "timestamp": 1775974968601,
+      "x": 756,
+      "y": 338
+    },
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://automationexercise.com/products",
+      "pageX": 241,
+      "pageY": 869,
+      "target": {
+        "ariaLabel": null,
+        "classes": [],
+        "cssSelector": "html > body > section:nth-of-type(2) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div > ul > li:nth-of-type(3) > a",
+        "href": "https://automationexercise.com/brand_products/Madame",
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 30,
+          "left": 191,
+          "top": 248,
+          "width": 261
+        },
+        "role": null,
+        "tag": "A",
+        "text": "(5)\nMADAME",
+        "type": null
+      },
+      "timestamp": 1775974970100,
+      "x": 241,
+      "y": 260
+    },
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "pageX": 754,
+      "pageY": 881,
+      "target": {
+        "ariaLabel": null,
+        "classes": [
+          "grippy-host"
+        ],
+        "cssSelector": "html > body > ins:nth-of-type(2) > div:nth-of-type(1)",
+        "href": null,
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 5,
+          "left": 258,
+          "top": 662,
+          "width": 1005
+        },
+        "role": null,
+        "tag": "DIV",
+        "text": "",
+        "type": null
+      },
+      "timestamp": 1775974978432,
+      "x": 754,
+      "y": 650
+    },
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "pageX": 1197,
+      "pageY": 840,
+      "target": {
+        "ariaLabel": null,
+        "classes": [],
+        "cssSelector": "html > body > section > div > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(4) > div > div:nth-of-type(2) > ul > li > a",
+        "href": "https://automationexercise.com/product_details/7",
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 39,
+          "left": 1078,
+          "top": 315,
+          "width": 248
+        },
+        "role": null,
+        "tag": "A",
+        "text": "View Product",
+        "type": null
+      },
+      "timestamp": 1775974981174,
+      "x": 1197,
+      "y": 339
+    }
+  ],
+  "consoleLogs": [],
+  "errors": [],
+  "formSubmissions": [],
+  "keyboardEvents": [],
+  "longTasks": [
+    {
+      "blockingTime": 36,
+      "duration": 86,
+      "startTime": 1257,
+      "timestamp": 1775974955932
+    },
+    {
+      "blockingTime": 7,
+      "duration": 57,
+      "startTime": 1452,
+      "timestamp": 1775974955932
+    },
+    {
+      "blockingTime": 29,
+      "duration": 79,
+      "startTime": 2252,
+      "timestamp": 1775974955932
+    },
+    {
+      "blockingTime": 44,
+      "duration": 94,
+      "startTime": 1751,
+      "timestamp": 1775974960359
+    },
+    {
+      "blockingTime": 26,
+      "duration": 76,
+      "startTime": 1590,
+      "timestamp": 1775974975123
+    },
+    {
+      "timestamp": 1775974983174,
+      "startTime": 1927,
+      "duration": 69,
+      "blockingTime": 19
+    }
+  ],
+  "memorySnapshots": [
+    {
+      "jsHeapSizeLimit": 4294967296,
+      "timestamp": 1775974969436,
+      "totalJSHeapSize": 29446819,
+      "usedJSHeapSize": 22710703
+    }
+  ],
+  "metadata": {
+    "devicePixelRatio": 1.25,
+    "language": "en-US",
+    "screenHeight": 960,
+    "screenWidth": 1536,
+    "startTime": 1775974955929,
+    "startUrl": "https://automationexercise.com/",
+    "stopTime": 1775974988641,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+  },
+  "navigations": [
+    {
+      "pageUrl": "https://automationexercise.com/products",
+      "timestamp": 1775974960330,
+      "type": "pushState",
+      "url": "https://automationexercise.com/products"
+    },
+    {
+      "pageUrl": "https://automationexercise.com/products#google_vignette",
+      "timestamp": 1775974970120,
+      "type": "replaceState",
+      "url": "https://automationexercise.com/products#google_vignette"
+    }
+  ],
+  "networkCalls": [
+    {
+      "duration": 126,
+      "id": "tc_1775974960232_1",
+      "initiatorType": "fetch",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {
+        "e": "1"
+      },
+      "requestBody": "[[[{\"7\":[5986306017143447,\"ca-pub-1677597403311019\",1,null,null,[1,1,[[\"https://automationexercise.com/products\",\"automationexercise.com\"],[null,\"en\",\".google.co.in\"],null,null,[[[null,null,null,null,null,null,null,null,null,null,null,null,null,[[1]]]]],[0,0,0,0,0,0,0,0],[1,3,2]],null,null,null,null,null,null,[null,14,[42,3323649,11804320,11804322,15127610,20213906,20213908,20222162,20224548,20234394,20234398,20234632,20234634,20235329,20235663,20235777,20235991,20236615,20236725,21066571,21066579,31097490,34491354,39592692,42530519,42533403,44712487,44712488,44712489,44715270,44735360,44735361,44735362,44737715,44759106,44765782,44793289,44806217,50720255,50720257,51390166,83322286,83322315,83322324,83322705,83322891,95324645,95333114,95333345,95339202,95339432,95343273,95345392,95346537,95348609,95349143,95349498,95353371,95354968,95355251,95356592,95359986,95361483,95361942,95362366,95362674,95365943,95366157,95366242,95366419,95367260,95367296,95369218,95371202,95371722,95373920,95374018,95374374,95374583,95375572,95375582,95376251,95376390,95377123,95377338,95377604,95377611,95378263,95378636,95379318,95379415,95379589,95379823,95380124,95380878,95380971,95381791,95381936,95382052,95382134,95382315,95382363,95382443,95382619,95382787,95382867,95383059,95383108,95383184,95383383,95383626,95384087,95384184,95384257,95384414,95384507,95384541,95384554,95384634,95384956,95385101,95385383,95385403,95385803,95385843,95386131,95386364,95386471,95386557,95386705,95386954,95386957,95387011,95387090,95387133,95387270,95387423,95387472,95387536,95387623,95387626,95387726,95387763,95387832,96843113,98952351,98952483,98952927,103299732,105318877,211826090,310310777,318482442,318494390,318517908,318523985,318524146,318525085,318525554,318525713,318525746,318526143,318526172,318526363,318526390,318526460,318526592,318526824,350921369]],null,null,null,null,null,null,null,1],1629]}]],[2,\"m202604070101\",[31097490,95384087,95387623,95386957,95379823]],[[{\"1\":[\"JN0hVd\",null,[null,1],[[\"en\"],[null,2],[null,2],[null,null,0],[null,null,0]]]}],[{\"1\":[\"i3zJEd\",null,[null,null,null,0],[[\"en\"],[null,2],[null,2],[null,null,0],[null,null,0]]]}],[{\"1\":[\"rmHfOd\",null,[null,1],[[\"en\"],[null,2],[null,0]]]}]]]",
+      "requestHeaders": {},
+      "responseBody": "[Binary: 0 bytes, type=]",
+      "responseHeaders": {},
+      "responseSize": 0,
+      "status": 0,
+      "statusText": "",
+      "timestamp": 1775974960232,
+      "type": "fetch",
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1"
+    },
+    {
+      "duration": 84,
+      "id": "tc_1775974960280_2",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974960279,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,[\"ID=763ef10bff0d2854:T=1775974952:RT=1775974952:S=ALNI_Mawi_auiS2-9p9dsGltT1KF0DYD9w\"]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974960280,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "duration": 83,
+      "id": "tc_1775974960281_3",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974960281,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,null,[5986306017143447]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974960281,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "duration": 81,
+      "id": "tc_1775974960291_4",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974960291,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,null,null,[[1625,1788]]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974960291,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "duration": 53,
+      "id": "tc_1775974960329_5",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "{\"resources\":[],\"referrer\":\"https://automationexercise.com/\",\"eventType\":1,\"firstPaint\":1084,\"firstContentfulPaint\":1084,\"startTime\":1775974958503,\"versions\":{\"fl\":\"2024.11.0\",\"js\":\"2026.2.0\",\"timings\":1},\"pageloadId\":\"75f85668-9589-4d37-a5dd-260c4e9ab58d\",\"location\":\"https://automationexercise.com/products\",\"nt\":\"navigate\",\"timingsV2\":{\"nextHopProtocol\":\"h3\",\"transferSize\":5652,\"decodedBodySize\":48057},\"dt\":\"\",\"siteToken\":\"cd4e8a3390ec4a29b8f61484a473eff3\",\"st\":2}",
+      "requestHeaders": {
+        "content-type": "application/json"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "POST,OPTIONS",
+        "access-control-allow-origin": "https://automationexercise.com",
+        "access-control-max-age": "86400",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cf-ray": "9eb0234e88058352-SIN",
+        "content-type": "text/plain",
+        "date": "Sun, 12 Apr 2026 06:22:40 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "priority": "u=1,i",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=C7WfMyT3PGPdumxBqEDcxF8LqGi%2F3wWKyxcn9iJMuBkHhmuYTA5KSbpb1VCkJvdi6gImX8lmHS0uwLPpEs7KWbL1QsLMJPE9gw3b1v5ZRC0i2BouPj%2BhYVbEP16Mvrlb7e0E1dQyE%2BNEkUYMwKCXo7pygFOP\"}]}",
+        "server": "cloudflare",
+        "server-timing": "cfExtPri",
+        "vary": "Origin"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974960329,
+      "type": "xhr",
+      "url": "/cdn-cgi/rum?"
+    },
+    {
+      "duration": 98,
+      "id": "tc_1775974960413_6",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974960413,null,null,null,null,null,null,null,null,null,null,null,[[1,156,\"automationexercise.com\",\"automationexercise.com\",1]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974960413,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxVLRJMFqyQfqW7saPa5t_vjh5D2p0zEOEy7LKYwKFfk9BY_hcGJm7OvtYWqn6wVxjiSSczoO04uB2nY2g0oVXgV2SMF8SOf_JnEZdeCWk61Bh5khim25HD36pfnChVjrwzu7SngIQ=="
+    },
+    {
+      "duration": 135,
+      "id": "tc_1775974961149_7",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974961149,null,null,[[1,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974961149,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "duration": 212,
+      "id": "tc_1775974961232_8",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974961232,null,null,[[2,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974961232,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "duration": 131,
+      "id": "tc_1775974961321_9",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974961321,null,null,[null,[1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974961321,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "duration": 231,
+      "id": "tc_1775974961322_10",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974961322,null,null,[[3,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974961322,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "duration": 128,
+      "id": "tc_1775974961487_11",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974961486,null,null,null,null,null,null,null,null,null,null,null,[[1,186,\"automationexercise.com\",\"automationexercise.com\",3]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974961487,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXv6eFaFQJSP-21gtaE3paq7391w1WSjDVUGtSTMaWZ4Zv9ffLMB0sI63KaIWShb5Y1qBKkd82nBhKgUVpnEyIhS92NsgnvTj_vSxiUc9UZm0NiWtzenGVYfqqnIFI_e3LXxpON4g=="
+    },
+    {
+      "duration": 185,
+      "id": "tc_1775974961487_12",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,[[0,null,1]],1775974961487,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974961487,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "duration": 837,
+      "id": "tc_1775974966439_13",
+      "initiatorType": "xhr",
+      "method": "GET",
+      "pageUrl": "https://automationexercise.com/products",
+      "queryParams": {},
+      "requestBody": null,
+      "requestHeaders": {
+        "Accept": "*/*",
+        "X-Requested-With": "XMLHttpRequest"
+      },
+      "responseBody": "Added To Cart",
+      "responseHeaders": {
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "9eb02374be6f8352-SIN",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 12 Apr 2026 06:22:47 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "priority": "u=1,i",
+        "referrer-policy": "same-origin",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4EWld2fXS64WcS7y9xHbds7FCGadPWKANGRwFa8EGBPRRumzBJtD7%2Fe7Iwxez3UJeOGtimy2SGes5AygUa77AnfHvIyhkFG1qWVgRhc84y0pKkuDapUa9SeyEKodsnXuND%2F0%2BdBB3TtYi%2FbPvoPYFXA4xH0V\"}]}",
+        "server": "cloudflare",
+        "server-timing": "cfExtPri",
+        "status": "200 OK",
+        "vary": "Cookie,Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "DENY",
+        "x-powered-by": "Phusion Passenger(R) 6.1.2"
+      },
+      "responseSize": 13,
+      "status": 200,
+      "statusText": "",
+      "timestamp": 1775974966439,
+      "type": "xhr",
+      "url": "/add_to_cart/1"
+    },
+    {
+      "duration": 158,
+      "id": "tc_1775974974964_1",
+      "initiatorType": "fetch",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {
+        "e": "1"
+      },
+      "requestBody": "[[[{\"7\":[7769567618101859,\"ca-pub-1677597403311019\",1,null,null,[1,null,[[\"https://automationexercise.com/brand_products/Madame\",\"automationexercise.com\"],[null,\"en\",\".google.co.in\"],null,null,[[[null,null,null,null,null,null,null,null,null,null,null,null,null,[[1]]]]],[0,0,0,0,0,0,0,0],[1,3,2]],null,null,null,null,null,null,[null,14,[42,3323649,11804320,11804322,15127610,20213906,20213908,20222162,20224548,20234394,20234398,20234632,20234634,20235329,20235663,20235777,20235991,20236615,20236725,21066571,21066579,31097490,34491354,39592692,42532808,42533403,44712487,44712488,44712489,44715270,44735360,44735361,44735362,44737715,44759106,44765782,44789631,44793289,44806217,50720255,51390166,83322286,83322316,83322324,83322891,83322999,95324645,95333114,95333345,95339202,95339432,95341177,95343273,95345392,95346527,95348609,95353371,95354968,95355251,95359986,95361483,95361942,95362366,95366157,95366419,95367260,95367296,95371202,95371722,95373920,95374018,95374374,95374485,95374583,95375572,95375582,95376251,95377123,95377604,95377611,95378635,95379318,95379415,95379589,95379823,95379929,95380124,95380878,95380971,95381791,95381936,95382052,95382134,95382315,95382363,95382443,95382619,95382787,95382867,95383059,95383108,95383184,95383626,95384087,95384184,95384257,95384507,95384542,95384554,95384634,95384956,95385101,95385383,95385403,95385803,95385843,95386131,95386250,95386364,95386471,95386557,95386705,95386952,95386955,95387011,95387090,95387133,95387137,95387423,95387472,95387536,95387623,95387626,95387726,95387763,95387832,95388217,96843113,98952351,98952483,98952927,103299732,105318877,211826090,318482442,318494390,318523985,318524146,318525085,318525554,318525713,318525746,318526143,318526172,318526363,318526390,318526460,318526592,318526824,350921369]],null,null,null,null,null,null,null,1],1413]}]],[2,\"m202604070101\",[31097490,95384087,95387623,95386955,95379823]],[[{\"1\":[\"JN0hVd\",null,[null,1],[[\"en\"],[null,2],[null,2],[null,null,0],[null,null,0]]]}],[{\"1\":[\"i3zJEd\",null,[null,null,null,0],[[\"en\"],[null,2],[null,2],[null,null,0],[null,null,0]]]}],[{\"1\":[\"rmHfOd\",null,[null,1],[[\"en\"],[null,2],[null,0]]]}]]]",
+      "requestHeaders": {},
+      "responseBody": "[Binary: 0 bytes, type=]",
+      "responseHeaders": {},
+      "responseSize": 0,
+      "status": 0,
+      "statusText": "",
+      "timestamp": 1775974974964,
+      "type": "fetch",
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1"
+    },
+    {
+      "duration": 66,
+      "id": "tc_1775974975059_2",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974975059,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,[\"ID=763ef10bff0d2854:T=1775974952:RT=1775974952:S=ALNI_Mawi_auiS2-9p9dsGltT1KF0DYD9w\"]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974975060,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "duration": 68,
+      "id": "tc_1775974975060_3",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974975060,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,null,[7769567618101859]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974975060,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "duration": 59,
+      "id": "tc_1775974975070_4",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974975070,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,null,null,[[1410,1621]]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974975070,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "duration": 71,
+      "id": "tc_1775974975190_5",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974975190,null,null,null,null,null,null,null,null,null,null,null,[[1,156,\"automationexercise.com\",\"automationexercise.com\",1]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974975190,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWn6ZSpAvZv9DAT2MLlQ3HiF2Ot9afq5D3nCK2GMuukF9pmcHDkNAHp7MXOAJvn1jYLoEzpyEx2ITrkmpwruoQDDebIkVDZRau8M2_Af7zFnkpyGKiwLigdJW6SCDMVWkmFJX_oTQ=="
+    },
+    {
+      "duration": 65,
+      "id": "tc_1775974975897_6",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974975897,null,null,[[1,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974975897,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "duration": 71,
+      "id": "tc_1775974975898_7",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974975898,null,null,[[2,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974975898,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "duration": 66,
+      "id": "tc_1775974975963_8",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974975963,null,null,[null,[1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974975963,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "duration": 67,
+      "id": "tc_1775974975964_9",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974975964,null,null,[[3,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974975964,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "duration": 72,
+      "id": "tc_1775974976069_10",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974976069,null,null,null,null,null,null,null,null,null,null,null,[[1,186,\"automationexercise.com\",\"automationexercise.com\",3]]]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974976069,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxV_kWlu3m-YTVo3OoNzNX-alrXqXt2fO-mJ1QaJihn2HK2qeG3a9JoiI3H1WH288JJIyO34GH788PvJj_Y-39pqJOXKHoQ3nrPx3bbUtW7w8Piq-nUr590CN0xFds51yBFOQP6-Lg=="
+    },
+    {
+      "duration": 74,
+      "id": "tc_1775974976070_11",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "[null,null,null,null,null,null,null,[[0,null,1]],1775974976070,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974976070,
+      "type": "xhr",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "duration": 91,
+      "id": "tc_1775974976245_13",
+      "initiatorType": "xhr",
+      "method": "POST",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {},
+      "requestBody": "{\"memory\":{\"totalJSHeapSize\":35792313,\"usedJSHeapSize\":29874733,\"jsHeapSizeLimit\":4294967296},\"resources\":[],\"referrer\":\"https://automationexercise.com/products\",\"eventType\":1,\"firstPaint\":520,\"firstContentfulPaint\":520,\"startTime\":1775974973449.1,\"versions\":{\"fl\":\"2024.11.0\",\"js\":\"2026.2.0\",\"timings\":2},\"pageloadId\":\"9bdfdb38-b364-4ca3-a03b-2994402bd045\",\"location\":\"https://automationexercise.com/brand_products/Madame\",\"nt\":\"navigate\",\"timingsV2\":{\"nextHopProtocol\":\"h3\",\"domainLookupStart\":21.40000009536743,\"domainLookupEnd\":21.40000009536743,\"connectStart\":21.40000009536743,\"connectEnd\":21.40000009536743,\"requestStart\":29.300000071525574,\"responseStart\":306.40000009536743,\"responseEnd\":309.3000000715256,\"domInteractive\":433,\"domComplete\":2794.600000023842,\"loadEventStart\":2794.600000023842,\"loadEventEnd\":2795.9000000953674,\"finalResponseHeadersStart\":306.40000009536743,\"firstInterimResponseStart\":0,\"transferSize\":4036,\"decodedBodySize\":15948},\"dt\":\"\",\"siteToken\":\"cd4e8a3390ec4a29b8f61484a473eff3\",\"st\":2}",
+      "requestHeaders": {
+        "content-type": "application/json"
+      },
+      "responseBody": "",
+      "responseHeaders": {
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "POST,OPTIONS",
+        "access-control-allow-origin": "https://automationexercise.com",
+        "access-control-max-age": "86400",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cf-ray": "9eb023b22f5c8352-SIN",
+        "content-type": "text/plain",
+        "date": "Sun, 12 Apr 2026 06:22:56 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "priority": "u=1,i",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=lc0pq6zYC3hWuVbcPLIMvcpHQ95z2N2JEKjLCXQpLFcmy1glG4UDnoqU4p1jSC12aqV6gPFPZDdmdb%2BaJj8kHzUYP0pzTjMn8SZWVTTn8DHh8bLunxboOAwuyf1eUvHpbeBbEIktGRnIwm3oa00obuOeejnY\"}]}",
+        "server": "cloudflare",
+        "server-timing": "cfExtPri",
+        "vary": "Origin"
+      },
+      "responseSize": 0,
+      "status": 204,
+      "statusText": "",
+      "timestamp": 1775974976245,
+      "type": "xhr",
+      "url": "/cdn-cgi/rum?"
+    },
+    {
+      "duration": 148,
+      "id": "tc_1775974976244_12",
+      "initiatorType": "xhr",
+      "method": "GET",
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "queryParams": {
+        "sjk": "7769567618101859",
+        "st": "env",
+        "sv": "200",
+        "tid": "gda",
+        "tv": "r20260408"
+      },
+      "requestBody": null,
+      "requestHeaders": {},
+      "responseBody": "{\"sodar_query_id\":\"QDrbabyFGOjRssUP5sbHCA\",\"injector_basename\":\"sodar2\",\"bg_hash_basename\":\"AspzwG3jxGh5JgUK98UmI0vuQbUZCMb9wkOIeT3hvJk\",\"bg_binary\":\"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\",\"rc_enable\":\"y\",\"bg_snapshot_delay_ms\":\"500\",\"is_gen_204\":\"0\"}",
+      "responseHeaders": {
+        "content-length": "13635",
+        "content-type": "application/json; charset=UTF-8"
+      },
+      "responseSize": 13635,
+      "status": 200,
+      "statusText": "",
+      "timestamp": 1775974976244,
+      "type": "xhr",
+      "url": "https://ep1.adtrafficquality.google/getconfig/sodar?sv=200&tid=gda&tv=r20260408&st=env&sjk=7769567618101859"
+    },
+    {
+      "id": "tc_1775974982969_1",
+      "timestamp": 1775974982969,
+      "type": "fetch",
+      "method": "POST",
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1",
+      "queryParams": {
+        "e": "1"
+      },
+      "requestHeaders": {},
+      "requestBody": "[[[{\"7\":[937326775554222,\"ca-pub-1677597403311019\",1,null,null,[1,null,[[\"https://automationexercise.com/product_details/7\",\"automationexercise.com\"],[null,\"en\",\".google.co.in\"],null,null,[[[null,null,null,null,null,null,null,null,null,null,null,null,null,[[1]]]]],[0,0,0,0,0,0,0,0],[1,3,2]],null,null,null,null,null,null,[null,9,[42,3323649,11804320,11804322,15127610,20213906,20213908,20222162,20224548,20234394,20234398,20234632,20234634,20235329,20235663,20235777,20235991,20236615,20236725,21066571,21066579,31097634,34491354,39592692,42533403,44712487,44712488,44712489,44715270,44735360,44735361,44735362,44737715,44759106,44765782,44784746,44793289,44806217,51390166,83322286,83322324,83322891,95324645,95333114,95333345,95339202,95339432,95343273,95344791,95344796,95345392,95346525,95348354,95348609,95351417,95353371,95354968,95355251,95358468,95359986,95361942,95362366,95366157,95366177,95366182,95366419,95367260,95367296,95371202,95371722,95373920,95374018,95374374,95374583,95375572,95375582,95376251,95377123,95377339,95377604,95377611,95378635,95379318,95379415,95379589,95380124,95380843,95380878,95380971,95381791,95381936,95382052,95382134,95382315,95382363,95382443,95382619,95382787,95382867,95383059,95383108,95383184,95383626,95383676,95384181,95384184,95384257,95384507,95384541,95384554,95384634,95384956,95385101,95385383,95385403,95385799,95385801,95385843,95386131,95386364,95386471,95386557,95386705,95386954,95386957,95387011,95387090,95387133,95387270,95387424,95387472,95387536,95387726,95387763,95387832,96843113,98952351,98952483,98952927,103299732,105318877,211826090,318472653,318482442,318494390,318523985,318524146,318525085,318525554,318525713,318525746,318526143,318526172,318526363,318526390,318526460,318526592,318526824,350921369]],null,null,null,null,null,null,null,1],1683]}]],[2,\"m202604070101\",[31097634,95366177,95385799,95344791,95386957]],[[{\"1\":[\"JN0hVd\",null,[null,1],[[\"en\"],[null,2],[null,2],[null,null,0],[null,null,0]]]}],[{\"1\":[\"i3zJEd\",null,[null,null,null,0],[[\"en\"],[null,2],[null,2],[null,null,0],[null,null,0]]]}],[{\"1\":[\"rmHfOd\",null,[null,1],[[\"en\"],[null,2],[null,0]]]}]]]",
+      "status": 0,
+      "statusText": "",
+      "responseHeaders": {},
+      "responseBody": "[Binary: 0 bytes, type=]",
+      "responseSize": 0,
+      "duration": 98,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "fetch"
+    },
+    {
+      "id": "tc_1775974983122_2",
+      "timestamp": 1775974983122,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974983121,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,[\"ID=763ef10bff0d2854:T=1775974952:RT=1775974952:S=ALNI_Mawi_auiS2-9p9dsGltT1KF0DYD9w\"]]]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 66,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974983123_3",
+      "timestamp": 1775974983123,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974983123,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,null,[937326775554222]]]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 67,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974983136_4",
+      "timestamp": 1775974983136,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974983136,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,[null,null,null,[[1680,1961]]]]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 61,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974983244_5",
+      "timestamp": 1775974983244,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWTD7hzE8KZQnZBrUCa_38_5WjMZ0NpRLESVy66ryovfxf2wXZnj4VL9dNlT7LPDteA3EZgk8U7PqWVAtn7_AcrPWh5b6mdukynbty8un0J6Xhh5aWR8GgwuUTUF8Vouvpgyb8Azg==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974983244,null,null,null,null,null,null,null,null,null,null,null,[[1,156,\"automationexercise.com\",\"automationexercise.com\",1]]]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 60,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974983846_7",
+      "timestamp": 1775974983846,
+      "type": "xhr",
+      "method": "POST",
+      "url": "/cdn-cgi/rum?",
+      "queryParams": {},
+      "requestHeaders": {
+        "content-type": "application/json"
+      },
+      "requestBody": "{\"memory\":{\"totalJSHeapSize\":26463257,\"usedJSHeapSize\":20984069,\"jsHeapSizeLimit\":4294967296},\"resources\":[],\"referrer\":\"https://automationexercise.com/brand_products/Madame\",\"eventType\":1,\"firstPaint\":1060,\"firstContentfulPaint\":1060,\"startTime\":1775974981175.5,\"versions\":{\"fl\":\"2024.11.0\",\"js\":\"2026.2.0\",\"timings\":2},\"pageloadId\":\"87fdeb7d-88bc-473a-8c00-b747de174213\",\"location\":\"https://automationexercise.com/product_details/7\",\"nt\":\"navigate\",\"timingsV2\":{\"nextHopProtocol\":\"h3\",\"domainLookupStart\":11.699999928474426,\"domainLookupEnd\":11.699999928474426,\"connectStart\":11.699999928474426,\"connectEnd\":11.699999928474426,\"requestStart\":14.899999976158142,\"responseStart\":923.2999999523163,\"responseEnd\":933.8999999761581,\"domInteractive\":1032.6999999284744,\"domComplete\":2667.899999976158,\"loadEventStart\":2667.899999976158,\"loadEventEnd\":2669,\"finalResponseHeadersStart\":923.2999999523163,\"firstInterimResponseStart\":0,\"transferSize\":3991,\"decodedBodySize\":12352},\"dt\":\"\",\"siteToken\":\"cd4e8a3390ec4a29b8f61484a473eff3\",\"st\":2}",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "POST,OPTIONS",
+        "access-control-allow-origin": "https://automationexercise.com",
+        "access-control-max-age": "86400",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cf-ray": "9eb023e18e868352-SIN",
+        "content-type": "text/plain",
+        "date": "Sun, 12 Apr 2026 06:23:03 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "priority": "u=1,i",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=h89%2BO2AMRY%2FvdspLrjAblo9jRo%2BpdWVbiN7o140wSSdxzSRgakh206N8gW546Ie98U0XgDep%2B2uqcIyg7xS9CoNF9ggKPzjsuPT4gDhhOuAIrulhucH6yW4Fgm1pT6XdwhJ8uQqFAoDTl%2FeI99Laf1EaqXK0\"}]}",
+        "server": "cloudflare",
+        "server-timing": "cfExtPri",
+        "vary": "Origin"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 59,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974983844_6",
+      "timestamp": 1775974983844,
+      "type": "xhr",
+      "method": "GET",
+      "url": "https://ep1.adtrafficquality.google/getconfig/sodar?sv=200&tid=gda&tv=r20260408&st=env&sjk=937326775554222",
+      "queryParams": {
+        "sv": "200",
+        "tid": "gda",
+        "tv": "r20260408",
+        "st": "env",
+        "sjk": "937326775554222"
+      },
+      "requestHeaders": {},
+      "requestBody": null,
+      "status": 200,
+      "statusText": "",
+      "responseHeaders": {
+        "content-length": "13609",
+        "content-type": "application/json; charset=UTF-8"
+      },
+      "responseBody": "{\"sodar_query_id\":\"RzrbaajqOYDMssUPiY3uuAE\",\"injector_basename\":\"sodar2\",\"bg_hash_basename\":\"AspzwG3jxGh5JgUK98UmI0vuQbUZCMb9wkOIeT3hvJk\",\"bg_binary\":\"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\",\"rc_enable\":\"y\",\"bg_snapshot_delay_ms\":\"500\",\"is_gen_204\":\"0\"}",
+      "responseSize": 13609,
+      "duration": 109,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974984053_8",
+      "timestamp": 1775974984053,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974984052,null,null,[[1,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 77,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974984127_9",
+      "timestamp": 1775974984127,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974984127,null,null,[[2,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 59,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974984145_11",
+      "timestamp": 1775974984145,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974984145,null,null,[[3,1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 60,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974984144_10",
+      "timestamp": 1775974984144,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974984144,null,null,[null,[1]],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 69,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974984222_12",
+      "timestamp": 1775974984222,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxVftLUPzK66oxBFytybkyuhWYm6hE7xIjCYbqoXNrzkS0qC-2IK-L4CxzHduTWnU9ezLyzRksTslLv0cw6GxrpNqsHUZ6Hh8OUwwN1IWbXb4z-2_6xT0G8jz69aXhKP7-5I5Ajsew==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,null,1775974984222,null,null,null,null,null,null,null,null,null,null,null,[[1,186,\"automationexercise.com\",\"automationexercise.com\",3]]]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 57,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    },
+    {
+      "id": "tc_1775974984224_13",
+      "timestamp": 1775974984224,
+      "type": "xhr",
+      "method": "POST",
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "queryParams": {},
+      "requestHeaders": {
+        "Content-Type": "text/plain"
+      },
+      "requestBody": "[null,null,null,null,null,null,null,[[0,null,1]],1775974984224,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0]",
+      "status": 204,
+      "statusText": "",
+      "responseHeaders": {
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+        "content-length": "0",
+        "content-type": "text/html; charset=utf-8",
+        "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+        "pragma": "no-cache"
+      },
+      "responseBody": "",
+      "responseSize": 0,
+      "duration": 60,
+      "pageUrl": "https://automationexercise.com/product_details/7",
+      "initiatorType": "xhr"
+    }
+  ],
+  "performanceTimings": [
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 10,
+      "encodedBodySize": 0,
+      "initiatorType": "fetch",
+      "nextHopProtocol": "h3",
+      "tcpConnect": 33,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 32,
+      "totalDuration": 139,
+      "transferSize": 300,
+      "ttfb": 94,
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2365,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 99,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUKyORaLeo6pFydNvdcCDZh4FgTn2VFyD7B-AB4wcpJzu5KCrjo1X33adJWC2cCVt-u5E6jimn7MoAk1mSTxi1Un5laQL5jo76ZTqAXTBBMqEdbnHFrhoo3twAPeDfLKAROXy2wxA=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2365,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 96,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUKyORaLeo6pFydNvdcCDZh4FgTn2VFyD7B-AB4wcpJzu5KCrjo1X33adJWC2cCVt-u5E6jimn7MoAk1mSTxi1Un5laQL5jo76ZTqAXTBBMqEdbnHFrhoo3twAPeDfLKAROXy2wxA=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2362,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 84,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUKyORaLeo6pFydNvdcCDZh4FgTn2VFyD7B-AB4wcpJzu5KCrjo1X33adJWC2cCVt-u5E6jimn7MoAk1mSTxi1Un5laQL5jo76ZTqAXTBBMqEdbnHFrhoo3twAPeDfLKAROXy2wxA=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2433,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 58,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXMsQt0ChBenlr902QFtILKRSCvRPspevywusdJGgwp9WkgIMVoQHPnkbuyvv-YXVKF99nwfKKAclpOUK8b1Yld56gP33J0njadXvFCZhoiPA9XhRN23ozKhgQq4CnTQgaPbiZW9w=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3,
+      "encodedBodySize": 0,
+      "initiatorType": "fetch",
+      "nextHopProtocol": "h3",
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 102,
+      "transferSize": 300,
+      "ttfb": 91,
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3187,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 72,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUKyORaLeo6pFydNvdcCDZh4FgTn2VFyD7B-AB4wcpJzu5KCrjo1X33adJWC2cCVt-u5E6jimn7MoAk1mSTxi1Un5laQL5jo76ZTqAXTBBMqEdbnHFrhoo3twAPeDfLKAROXy2wxA=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3193,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 58,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUKyORaLeo6pFydNvdcCDZh4FgTn2VFyD7B-AB4wcpJzu5KCrjo1X33adJWC2cCVt-u5E6jimn7MoAk1mSTxi1Un5laQL5jo76ZTqAXTBBMqEdbnHFrhoo3twAPeDfLKAROXy2wxA=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3240,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 62,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUKyORaLeo6pFydNvdcCDZh4FgTn2VFyD7B-AB4wcpJzu5KCrjo1X33adJWC2cCVt-u5E6jimn7MoAk1mSTxi1Un5laQL5jo76ZTqAXTBBMqEdbnHFrhoo3twAPeDfLKAROXy2wxA=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3238,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 59,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUKyORaLeo6pFydNvdcCDZh4FgTn2VFyD7B-AB4wcpJzu5KCrjo1X33adJWC2cCVt-u5E6jimn7MoAk1mSTxi1Un5laQL5jo76ZTqAXTBBMqEdbnHFrhoo3twAPeDfLKAROXy2wxA=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3443,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 94,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUlUlkl6Uve4FxV6VkIXV9ax16msM9N-BeZ05ZbwagjPnoPKnnY_b9AX2RMiP4C_UMKuHNt8lfqb7BpTXQJ1h6QmsuXzACipdun67JnpnXwwXCaxts_eZjjtNCKyt5QzSAhdhzezg=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3408,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974955932,
+      "tlsHandshake": 0,
+      "totalDuration": 58,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUKyORaLeo6pFydNvdcCDZh4FgTn2VFyD7B-AB4wcpJzu5KCrjo1X33adJWC2cCVt-u5E6jimn7MoAk1mSTxi1Un5laQL5jo76ZTqAXTBBMqEdbnHFrhoo3twAPeDfLKAROXy2wxA=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2,
+      "encodedBodySize": 0,
+      "initiatorType": "fetch",
+      "nextHopProtocol": "h3",
+      "tcpConnect": 0,
+      "timestamp": 1775974960363,
+      "tlsHandshake": 0,
+      "totalDuration": 95,
+      "transferSize": 300,
+      "ttfb": 90,
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1836,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974960366,
+      "tlsHandshake": 0,
+      "totalDuration": 58,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1837,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974960366,
+      "tlsHandshake": 0,
+      "totalDuration": 58,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1847,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974960373,
+      "tlsHandshake": 0,
+      "totalDuration": 59,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 0,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": "h3",
+      "tcpConnect": 0,
+      "timestamp": 1775974960382,
+      "tlsHandshake": 0,
+      "totalDuration": 49,
+      "transferSize": 300,
+      "ttfb": 45,
+      "url": "https://automationexercise.com/cdn-cgi/rum?"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1971,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974960512,
+      "tlsHandshake": 0,
+      "totalDuration": 60,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxVLRJMFqyQfqW7saPa5t_vjh5D2p0zEOEy7LKYwKFfk9BY_hcGJm7OvtYWqn6wVxjiSSczoO04uB2nY2g0oVXgV2SMF8SOf_JnEZdeCWk61Bh5khim25HD36pfnChVjrwzu7SngIQ=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2714,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974961284,
+      "tlsHandshake": 0,
+      "totalDuration": 68,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2907,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974961445,
+      "tlsHandshake": 0,
+      "totalDuration": 177,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2926,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974961453,
+      "tlsHandshake": 0,
+      "totalDuration": 107,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2991,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974961553,
+      "tlsHandshake": 0,
+      "totalDuration": 171,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3077,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974961615,
+      "tlsHandshake": 0,
+      "totalDuration": 93,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXv6eFaFQJSP-21gtaE3paq7391w1WSjDVUGtSTMaWZ4Zv9ffLMB0sI63KaIWShb5Y1qBKkd82nBhKgUVpnEyIhS92NsgnvTj_vSxiUc9UZm0NiWtzenGVYfqqnIFI_e3LXxpON4g=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 3140,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974961672,
+      "tlsHandshake": 0,
+      "totalDuration": 155,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxUcIlHm-UC-kVb3PYETY-1sqaMcGt9Yh69O4DKfXIMTRnpiY-mctSKZnQCbRbmdY6JZcwU53ZYzQ93SXlfqw4MwK0ohQglD9lM85W4ATGwDkDuCkaJU5XBh8i-xKJF_5OHTNbKaig=="
+    },
+    {
+      "decodedBodySize": 13,
+      "dnsLookup": 0,
+      "downloadTime": 2,
+      "encodedBodySize": 13,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": "h3",
+      "tcpConnect": 0,
+      "timestamp": 1775974967277,
+      "tlsHandshake": 0,
+      "totalDuration": 833,
+      "transferSize": 313,
+      "ttfb": 828,
+      "url": "https://automationexercise.com/add_to_cart/1"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2,
+      "encodedBodySize": 0,
+      "initiatorType": "fetch",
+      "nextHopProtocol": "h3",
+      "tcpConnect": 0,
+      "timestamp": 1775974975128,
+      "tlsHandshake": 0,
+      "totalDuration": 97,
+      "transferSize": 300,
+      "ttfb": 92,
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1672,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974975128,
+      "tlsHandshake": 0,
+      "totalDuration": 61,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1677,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974975129,
+      "tlsHandshake": 0,
+      "totalDuration": 66,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1679,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974975129,
+      "tlsHandshake": 0,
+      "totalDuration": 57,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1806,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974975261,
+      "tlsHandshake": 0,
+      "totalDuration": 64,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWn6ZSpAvZv9DAT2MLlQ3HiF2Ot9afq5D3nCK2GMuukF9pmcHDkNAHp7MXOAJvn1jYLoEzpyEx2ITrkmpwruoQDDebIkVDZRau8M2_Af7zFnkpyGKiwLigdJW6SCDMVWkmFJX_oTQ=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2506,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974975962,
+      "tlsHandshake": 0,
+      "totalDuration": 57,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2514,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974975969,
+      "tlsHandshake": 0,
+      "totalDuration": 65,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2572,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974976029,
+      "tlsHandshake": 0,
+      "totalDuration": 57,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2578,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974976031,
+      "tlsHandshake": 0,
+      "totalDuration": 63,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2692,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974976143,
+      "tlsHandshake": 0,
+      "totalDuration": 71,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxV_kWlu3m-YTVo3OoNzNX-alrXqXt2fO-mJ1QaJihn2HK2qeG3a9JoiI3H1WH288JJIyO34GH788PvJj_Y-39pqJOXKHoQ3nrPx3bbUtW7w8Piq-nUr590CN0xFds51yBFOQP6-Lg=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 2692,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775974976144,
+      "tlsHandshake": 0,
+      "totalDuration": 71,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxXEwXND5s9y2qDMgAEEBsQBR6wqNeEJcRIlStRDoptgnGgU7skDT6S5cjb2G3r2tClKBR3-0LknkfoxhvfUqXdnWt7W2JUN_M9YZCI5ndSTucml0p1qTm26Huk2ybspjOWDnnBf_A=="
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": "h3",
+      "tcpConnect": 0,
+      "timestamp": 1775974976337,
+      "tlsHandshake": 0,
+      "totalDuration": 73,
+      "transferSize": 300,
+      "ttfb": 46,
+      "url": "https://automationexercise.com/cdn-cgi/rum?"
+    },
+    {
+      "decodedBodySize": 18081,
+      "dnsLookup": 1,
+      "downloadTime": 2,
+      "encodedBodySize": 13635,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": "h2",
+      "tcpConnect": 47,
+      "timestamp": 1775974976393,
+      "tlsHandshake": 29,
+      "totalDuration": 144,
+      "transferSize": 13935,
+      "ttfb": 69,
+      "url": "https://ep1.adtrafficquality.google/getconfig/sodar?sv=200&tid=gda&tv=r20260408&st=env&sjk=7769567618101859"
+    },
+    {
+      "timestamp": 1775974983069,
+      "url": "https://pagead2.googlesyndication.com/pagead/ping?e=1",
+      "initiatorType": "fetch",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 90,
+      "downloadTime": 3,
+      "totalDuration": 95,
+      "transferSize": 300,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": "h3"
+    },
+    {
+      "timestamp": 1775974983188,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 2000,
+      "totalDuration": 53,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974983190,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 2001,
+      "totalDuration": 53,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974983197,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 2014,
+      "totalDuration": 52,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974983305,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWTD7hzE8KZQnZBrUCa_38_5WjMZ0NpRLESVy66ryovfxf2wXZnj4VL9dNlT7LPDteA3EZgk8U7PqWVAtn7_AcrPWh5b6mdukynbty8un0J6Xhh5aWR8GgwuUTUF8Vouvpgyb8Azg==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 2128,
+      "totalDuration": 59,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974983906,
+      "url": "https://automationexercise.com/cdn-cgi/rum?",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 48,
+      "downloadTime": 0,
+      "totalDuration": 53,
+      "transferSize": 300,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": "h3"
+    },
+    {
+      "timestamp": 1775974983952,
+      "url": "https://ep1.adtrafficquality.google/getconfig/sodar?sv=200&tid=gda&tv=r20260408&st=env&sjk=937326775554222",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 35,
+      "tlsHandshake": 34,
+      "ttfb": 89,
+      "downloadTime": 1,
+      "totalDuration": 100,
+      "transferSize": 13909,
+      "encodedBodySize": 13609,
+      "decodedBodySize": 18042,
+      "nextHopProtocol": "h3"
+    },
+    {
+      "timestamp": 1775974984130,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 2953,
+      "totalDuration": 75,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974984186,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 3007,
+      "totalDuration": 55,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974984206,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 3028,
+      "totalDuration": 58,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974984213,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 3032,
+      "totalDuration": 63,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974984280,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxVftLUPzK66oxBFytybkyuhWYm6hE7xIjCYbqoXNrzkS0qC-2IK-L4CxzHduTWnU9ezLyzRksTslLv0cw6GxrpNqsHUZ6Hh8OUwwN1IWbXb4z-2_6xT0G8jz69aXhKP7-5I5Ajsew==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 3103,
+      "totalDuration": 55,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    },
+    {
+      "timestamp": 1775974984284,
+      "url": "https://fundingchoicesmessages.google.com/el/AGSKWxWvX2N1dycjlRUOUfjbSHxQLu27yisGGvjp0Yyda0ngXLDUuz2MMeAI2iHjUE_yxR5qiCW3FRv-InmelJC6mLmHXLY_QHuMBrPPJmjVeGYlrYMcmp55tWfUJnworUTS-_cS7FQW2Q==",
+      "initiatorType": "xmlhttprequest",
+      "dnsLookup": 0,
+      "tcpConnect": 0,
+      "tlsHandshake": 0,
+      "ttfb": 0,
+      "downloadTime": 3106,
+      "totalDuration": 57,
+      "transferSize": 0,
+      "encodedBodySize": 0,
+      "decodedBodySize": 0,
+      "nextHopProtocol": null
+    }
+  ],
+  "scrollEvents": [
+    {
+      "pageHeight": 8191,
+      "pageUrl": "https://automationexercise.com/products",
+      "scrollX": 0,
+      "scrollY": 2,
+      "timestamp": 1775974964511,
+      "viewportHeight": 791
+    },
+    {
+      "pageHeight": 8191,
+      "pageUrl": "https://automationexercise.com/products",
+      "scrollX": 0,
+      "scrollY": 373,
+      "timestamp": 1775974965022,
+      "viewportHeight": 791
+    },
+    {
+      "pageHeight": 1953,
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "scrollX": 0,
+      "scrollY": 17,
+      "timestamp": 1775974976359,
+      "viewportHeight": 791
+    },
+    {
+      "pageHeight": 1953,
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "scrollX": 0,
+      "scrollY": 231,
+      "timestamp": 1775974976688,
+      "viewportHeight": 791
+    },
+    {
+      "pageHeight": 1953,
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "scrollX": 0,
+      "scrollY": 278,
+      "timestamp": 1775974979520,
+      "viewportHeight": 791
+    },
+    {
+      "pageHeight": 1953,
+      "pageUrl": "https://automationexercise.com/brand_products/Madame",
+      "scrollX": 0,
+      "scrollY": 501,
+      "timestamp": 1775974979787,
+      "viewportHeight": 791
+    }
+  ],
+  "visibilityChanges": [],
+  "webVitals": {
+    "cls": {
+      "value": 0.001,
+      "timestamp": 1775974983024
+    },
+    "domComplete": {
+      "value": 0,
+      "timestamp": 1775974982215
+    },
+    "domInteractive": {
+      "value": 1033,
+      "timestamp": 1775974982215
+    },
+    "inp": {
+      "sampleCount": 5,
+      "timestamp": 1775974981187,
+      "value": 24
+    },
+    "lcp": {
+      "value": 1476,
+      "element": "IMG",
+      "url": "https://automationexercise.com/get_product_picture/7",
+      "size": 124115,
+      "timestamp": 1775974982669
+    },
+    "ttfb": {
+      "value": 923,
+      "timestamp": 1775974982215
+    }
+  }
+}

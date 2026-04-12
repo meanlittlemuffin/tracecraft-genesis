@@ -1,0 +1,50 @@
+{
+  "rootCause": {
+    "summary": "The page navigation to '/status_codes/500' resulted in an incomplete page load, preventing the expected content from displaying and causing subsequent analytics requests to fail with a network error.",
+    "confidence": "90%",
+    "triggerChain": [
+      "User clicked '500' link on /status_codes",
+      "Browser initiated navigation to /status_codes/500",
+      "Page load for /status_codes/500 was incomplete or failed to fully render (domComplete: 0)",
+      "Analytics XHR initiated from the incomplete page failed with 'Network error' (status 0)"
+    ],
+    "evidence": [
+      "Click event on element with text '500' and selector '#content > div > ul > li:nth-of-type(4) > a' at timestamp 1775981830690.",
+      "Network event with url 'https://298279967.log.optimizely.com/event?...' and pageUrl 'https://the-internet.herokuapp.com/status_codes/500' reporting 'status: 0' and 'error: Network error' at timestamp 1775981832966.",
+      "Web vital metrics show 'domComplete.value: 0' and 'domInteractive.value: 0', indicating the page did not fully load or become interactive.",
+      "The main document GET request for 'https://the-internet.herokuapp.com/status_codes/500' is not present in the recorded network events, despite the pageUrl changing, suggesting a problematic or uncaptured main page load."
+    ],
+    "fix": "1. Investigate server logs for `GET /status_codes/500` to ensure it returns a valid 500 HTTP status code and a complete, well-formed HTML document. 2. Check for any client-side JavaScript errors or resource loading failures that might prevent the DOM from completing (though none were captured in this recording). 3. Examine browser console logs for any warnings or errors related to page rendering or resource loading. 4. Ensure analytics scripts are loaded asynchronously and are resilient to main page load failures, and verify no browser extensions or network issues are blocking requests to `log.optimizely.com`."
+  },
+  "bugReport": {
+    "title": "500 Status Code Page Fails to Load Completely and Display Content",
+    "description": "When navigating to the '500' status code page from the `/status_codes` list, the page appears to load incompletely. The recording shows that `domComplete` and `domInteractive` metrics are 0, suggesting the DOM never fully loaded or became interactive. This likely prevents the expected 'This page returned a 500 status code.' content from being displayed to the user. Additionally, an Optimizely analytics XHR initiated from this page failed with a 'Network error' (status 0), which is likely a symptom of the incomplete page load or a broader client-side issue.",
+    "severity": "HIGH",
+    "timeline": [
+      "User was on 'https://the-internet.herokuapp.com/status_codes'.",
+      "1775981830488: An Optimizely tracking XHR (from /status_codes page) failed with status 0, 'Network error'.",
+      "1775981830690: User clicked the '500' link.",
+      "Browser navigated to 'https://the-internet.herokuapp.com/status_codes/500'.",
+      "1775981832966: An Optimizely tracking XHR (from /status_codes/500 page) failed with status 0, 'Network error'.",
+      "The page's 'domComplete' and 'domInteractive' metrics were recorded as 0, indicating an incomplete page load."
+    ],
+    "networkActivity": "Two Optimizely analytics XHRs failed with status 0 and 'Network error'. One occurred on the initial '/status_codes' page, and another occurred after navigating to '/status_codes/500'. Crucially, the main document GET request for 'https://the-internet.herokuapp.com/status_codes/500' is missing from the recorded network events.",
+    "consoleLogs": "No console logs were recorded in this session.",
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+      "pageUrl": "https://the-internet.herokuapp.com/status_codes",
+      "screenSize": "1536x960"
+    }
+  },
+  "reproductionSteps": {
+    "steps": [
+      "Navigate to 'https://the-internet.herokuapp.com/status_codes'.",
+      "Click the '500' link."
+    ],
+    "curlCommands": [
+      "curl -v 'https://the-internet.herokuapp.com/status_codes/500'"
+    ],
+    "expectedBehavior": "The browser should navigate to 'https://the-internet.herokuapp.com/status_codes/500'. The page should fully load and display content indicating a 500 status code (e.g., 'This page returned a 500 status code.'). Any analytics requests should complete successfully.",
+    "actualBehavior": "The browser navigates to 'https://the-internet.herokuapp.com/status_codes/500', but the page fails to load completely (indicated by `domComplete: 0`, `domInteractive: 0`). The expected '500' content is not displayed, and analytics requests from this page fail with a 'Network error' (status 0)."
+  }
+}
