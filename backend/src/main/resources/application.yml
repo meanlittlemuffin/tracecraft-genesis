@@ -4,12 +4,17 @@ server:
 spring:
   application:
     name: session-replay
-
-completions:
-  api-key: sk-cp_4aba4c583f5559e719e471c1cb88ea45743a68e79ef2aa3a
-  base-url: https://completions.me/api/v1
-  model: claude-opus-4.6
+  ai:
+    openai:
+      api-key: AIzaSyCWHjHfudqE7M_8ibcBjcHTqzwth3xQVrg
+      base-url: https://generativelanguage.googleapis.com/v1beta/openai/
+      chat:
+        options:
+          model: gemini-2.5-flash
+          temperature: 0.3
+          max-tokens: 65536
 
 logging:
   level:
     root: INFO
+    org.springframework.ai: DEBUG
