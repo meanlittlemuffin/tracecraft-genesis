@@ -5,7 +5,6 @@ vendor/
 # Build outputs
 target/
 *.class
-*.jar
 *.war
 *.ear
 
@@ -27,7 +26,6 @@ Thumbs.db
 .env.local
 
 # Maven
-.mvn/
 maven/
 
 # Backend specific
