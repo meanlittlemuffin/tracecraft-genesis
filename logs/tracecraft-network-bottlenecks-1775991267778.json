@@ -1,0 +1,44 @@
+{
+  "summary": "The session primarily involved numerous fast logging/analytics calls to Optimizely. One of these calls failed with a network error (status 0). No other significant network bottlenecks such as large payloads, N+1 patterns, or consistently slow server responses were identified. The overall network performance is good, but the single failure warrants investigation.",
+  "networkHealthScore": 85,
+  "totalRequests": 22,
+  "failedRequests": 1,
+  "totalDurationMs": 1581,
+  "slowEndpoints": [
+    {
+      "url": "https://298279967.log.optimizely.com/event",
+      "method": "GET",
+      "avgDurationMs": 71.86,
+      "maxDurationMs": 97,
+      "callCount": 22,
+      "bottleneckPhase": "Network Error / Client-side Handling",
+      "severity": "Medium"
+    }
+  ],
+  "nplusOnePatterns": [],
+  "parallelizableGroups": [],
+  "redundantCalls": [],
+  "largePayloads": [],
+  "corsPreflights": [],
+  "compressionIssues": [],
+  "recommendations": [
+    {
+      "priority": "High",
+      "action": "Investigate the 'Network error' (status 0) for the Optimizely logging call. This could indicate a client-side issue, network connectivity problem, or an issue with the logging service itself, leading to potential data loss.",
+      "effort": "Medium",
+      "codeExample": null
+    },
+    {
+      "priority": "Medium",
+      "action": "Implement robust error handling and retry mechanisms for critical analytics/logging calls to ensure data is captured even if initial attempts fail. Consider client-side queuing for offline scenarios.",
+      "effort": "Medium",
+      "codeExample": "try {\n  await fetch('https://log.optimizely.com/event', { method: 'GET' });\n} catch (error) {\n  console.error('Optimizely log failed:', error);\n  // Implement retry logic or queue for later submission\n}"
+    },
+    {
+      "priority": "Low",
+      "action": "Regularly monitor the volume and performance of third-party analytics/logging calls. While currently fast, a high volume can sometimes consume network resources or CPU cycles, potentially impacting user experience on slower networks or devices.",
+      "effort": "Low",
+      "codeExample": null
+    }
+  ]
+}

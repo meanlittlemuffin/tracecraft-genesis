@@ -1,177 +1,135 @@
-# Session Replay Prototype
+# TraceCraft Genesis
 
-A hackathon prototype for recording user sessions and generating AI-powered bug reports.
+A browser session replay tool that records everything a user does — clicks, network calls with full request/response payloads, console logs, errors, performance metrics — and uses AI to analyze recordings for bugs, network bottlenecks, and session health.
 
 ## Architecture
 
 ```
-┌─────────────────────────────────┐     ┌─────────────────────────────┐
-│  Chrome Extension                │     │  Spring Boot Backend        │
-│  • Start/Stop Recording        │────►│  (completions.me Claude Opus 4.6) │
-│  • Capture clicks, network,    │     │                             │
-│    console, errors             │     │  POST /api/analyze          │
-│  • Export JSON file            │     │  POST /api/report          │
-└─────────────────────────────────┘     │  POST /api/root-cause      │
-                                        │  POST /api/reproduce       │
-                                        └─────────────────────────────┘
+Chrome Extension                          Spring Boot 3.3.5 Backend
+┌──────────────────────┐                  ┌──────────────────────────┐
+│ MAIN world           │                  │ RecordingController      │
+│  page-interceptor.js │                  │  POST /api/analyze       │
+│  (fetch, XHR,        │   postMessage    │  POST /api/network-      │
+│   console, errors)   │──────────────┐   │       bottlenecks        │
+├──────────────────────┤              │   │  POST /api/bug-diagnosis │
+│ ISOLATED world       │              │   │  GET  /api/health        │
+│  content-script.js   │──────────────┤   ├──────────────────────────┤
+│  (clicks, keyboard,  │              │   │ AIService                │
+│   scroll, Web Vitals)│  HTTP POST   │   │  (Spring AI ChatClient)  │
+├──────────────────────┤──────────────┘──▶├──────────────────────────┤
+│ Popup UI             │                  │ Google Gemini 2.5 Flash  │
+│  (popup.html/js/css) │                  │ (free tier)              │
+└──────────────────────┘                  └──────────────────────────┘
 ```
 
-## Components
+## Tech Stack
 
-### Browser Extension (`browser-extension/`)
-
-- **Manifest V3** Chrome extension
-- Captures: clicks, network calls (fetch/XHR), console logs, JavaScript errors
-- Export recordings as JSON files
-
-### Backend (`backend/`)
-
-- **Spring Boot 3.4** application
-- **Spring AI** with Anthropic Claude (Haiku)
-- **MCP Server** with 4 tools:
-  - `analyze_recording` - Structured summary
-  - `generate_report` - Human-readable bug report
-  - `root_cause_analysis` - Identify likely causes
-  - `generate_reproduction_steps` - curl commands
+| Component | Technology |
+|-----------|-----------|
+| Backend | Spring Boot 3.3.5, Spring AI 1.0.0, Java 17+ |
+| AI Model | Google Gemini 2.5 Flash (free tier via OpenAI-compatible endpoint) |
+| Extension | Chrome Manifest V3 with MAIN + ISOLATED world scripts |
+| Build | Maven 3.9.6 (via wrapper) |
 
 ## Setup
 
-### 1. Backend
+### 1. Get a Gemini API Key (free)
 
-**Windows:**
-```cmd
-cd backend
+1. Go to https://aistudio.google.com
+2. Click "Get API key" → "Create API key"
+3. Copy the key
 
-# Set your completions.me API key in application.yml first!
-# Get free key at https://completions.me
+### 2. Configure and Start the Backend
 
-maven\bin\mvn.cmd spring-boot:run
-```
-
-**Linux/Mac:**
 ```bash
 cd backend
-# Set your completions.me API key in application.yml first!
-maven/bin/mvn spring-boot:run
+
+# Edit src/main/resources/application.yml and paste your Gemini API key
+
+# Build and run
+./mvnw spring-boot:run
 ```
 
-The backend starts on **http://localhost:8080**
+Verify: `curl http://localhost:8080/api/health` should return `{"status":"UP"}`
 
-### 2. Browser Extension
+### 3. Load the Chrome Extension
 
-1. Open Chrome and go to `chrome://extensions/`
-2. Enable "Developer mode" (toggle in top right)
-3. Click "Load unpacked"
-4. Select the `browser-extension/` folder
-5. The extension icon appears in your toolbar
+1. Go to `chrome://extensions/`
+2. Enable "Developer mode" (top right toggle)
+3. Click "Load unpacked" → select the `browser-extension/` folder
+4. The extension icon appears in your toolbar
 
 ## Usage
 
 ### Recording a Session
 
-1. Click the extension icon in Chrome toolbar
-2. Click **"Start Recording"**
-3. Navigate to the page with the issue
-4. Reproduce the bug (click, make API calls, etc.)
-5. Click **"Stop Recording"**
-6. Click **"Export JSON"** to download the recording
+1. Click the extension icon
+2. Click **Start Recording**
+3. Browse the website — interact, trigger the bug, etc.
+4. Click **Stop Recording**
 
-### Analyzing with AI
+### Analyzing
 
-```bash
-# Analyze recording
-curl -X POST http://localhost:8080/api/analyze \
-  -H "Content-Type: application/json" \
-  -d @recording.json
+| Button | What it does |
+|--------|-------------|
+| **Export JSON** | Download raw recording (no backend needed) |
+| **Full Analysis** | Broad session health: score, issues, network report, UX report, recommendations |
+| **Network Bottlenecks** | Slow endpoints, N+1 patterns, redundant calls, CORS overhead, compression |
+| **Bug Diagnosis** | Root cause + trigger chain, bug report with timeline, reproduction steps with curl commands |
+| **Clear** | Reset recording data |
 
-# Generate report
-curl -X POST http://localhost:8080/api/report \
-  -H "Content-Type: application/json" \
-  -d @recording.json
+Wait ~30 seconds between analysis buttons to avoid Gemini free tier rate limits.
 
-# Root cause analysis
-curl -X POST http://localhost:8080/api/root-cause \
-  -H "Content-Type: application/json" \
-  -d @recording.json
+## What Gets Recorded
 
-# Generate reproduction steps
-curl -X POST http://localhost:8080/api/reproduce \
-  -H "Content-Type: application/json" \
-  -d @recording.json
-```
+- **Network calls**: Full URL, method, headers, request body, response body, status, duration, query params (for both fetch and XHR)
+- **Clicks**: Position, target element details, CSS selector, bounding rect
+- **Console**: All levels (log, info, warn, error, debug)
+- **Errors**: JS errors with stack traces, unhandled promise rejections, CSP violations
+- **Navigation**: SPA route changes (pushState, replaceState, popstate)
+- **Keyboard**: Key events (password fields automatically redacted)
+- **Performance**: Web Vitals (LCP, CLS, INP, TTFB), long tasks, resource timings, memory snapshots
 
 ## API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/api/analyze` | POST | Analyze recording, return structured summary |
-| `/api/report` | POST | Generate human-readable bug report |
-| `/api/root-cause` | POST | Identify root cause of issues |
-| `/api/reproduce` | POST | Generate curl commands to reproduce |
 | `/api/health` | GET | Health check |
+| `/api/analyze` | POST | Full session analysis with structured JSON response |
+| `/api/network-bottlenecks` | POST | Network performance analysis |
+| `/api/bug-diagnosis` | POST | Root cause, bug report, and reproduction steps |
 
-## Recording Schema
+## Test Websites
 
-```json
-{
-  "sessionId": "session-123456-abc123",
-  "startTime": 1712500000000,
-  "endTime": 1712500060000,
-  "url": "https://example.com/page",
-  "clicks": [
-    {
-      "timestamp": 1712500010000,
-      "x": 150,
-      "y": 200,
-      "targetTag": "BUTTON",
-      "targetId": "submit-btn",
-      "targetSelector": "#submit-btn"
-    }
-  ],
-  "networkCalls": [
-    {
-      "timestamp": 1712500020000,
-      "url": "https://api.example.com/data",
-      "method": "POST",
-      "status": 500,
-      "requestBody": "{\"id\": 1}",
-      "responseBody": "{\"error\": \"Internal Server Error\"}"
-    }
-  ],
-  "consoleLogs": [
-    {
-      "timestamp": 1712500030000,
-      "level": "error",
-      "messages": ["API Error:", "Failed to fetch"]
-    }
-  ],
-  "errors": [
-    {
-      "timestamp": 1712500040000,
-      "message": "TypeError: Cannot read property 'x' of undefined",
-      "stack": "at Function.x (app.js:123:45)"
-    }
-  ]
-}
+| Website | Good for testing |
+|---------|-----------------|
+| https://the-internet.herokuapp.com | JS errors, broken images, failed logins |
+| https://reqres.in | Live API calls with visible request/response |
+| https://automationexercise.com | E-commerce with lots of network + interaction data |
+
+## Project Structure
+
 ```
-
-## Tech Stack
-
-- **Backend**: Spring Boot 2.7.18
-- **AI**: Claude Opus 4.6 (via completions.me - free, unlimited)
-- **Extension**: Chrome Extension Manifest V3
-
-## Free AI API
-
-This project uses **completions.me** for free AI-powered analysis (no credit card required).
-
-### Available Models
-- Claude Opus 4.6 (best for coding/analysis)
-- GPT-5.2
-- Gemini 3.1 Pro
-- Grok Code Fast
-
-Get your free API key at: https://completions.me
+tracecraft-genesis/
+├── backend/
+│   ├── pom.xml
+│   ├── mvnw / mvnw.cmd
+│   └── src/main/
+│       ├── java/com/hackathon/sessionreplay/
+│       │   ├── SessionReplayApplication.java
+│       │   ├── api/RecordingController.java
+│       │   ├── model/AnalysisModels.java
+│       │   └── service/AIService.java
+│       └── resources/application.yml
+├── browser-extension/
+│   ├── manifest.json
+│   ├── popup/ (popup.html, popup.css, popup.js)
+│   └── src/ (page-interceptor.js, content-script.js, background.js)
+├── AGENTS.md                         # Detailed developer documentation (for AI tools)
+└── docs/
+    ├── HACKATHON_PLAN.md             # 12-hour build plan with gotchas
+    └── TraceCraft Prompts.md         # Prompts to recreate the project with any AI tool
+```
 
 ## License
 

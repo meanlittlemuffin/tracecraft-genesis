@@ -1,0 +1,53 @@
+{
+  "summary": "The session experienced significant network performance issues, primarily due to an extremely slow external resource taking over 30 seconds to respond, and a critical network error affecting an analytics logging endpoint. While most other requests were fast, these two issues severely impacted overall network health and user experience.",
+  "networkHealthScore": 50,
+  "totalRequests": 7,
+  "failedRequests": 1,
+  "totalDurationMs": 30734,
+  "slowEndpoints": [
+    {
+      "url": "https://the-internet.herokuapp.com/slow_external",
+      "method": "GET",
+      "avgDurationMs": 30282,
+      "maxDurationMs": 30282,
+      "callCount": 1,
+      "bottleneckPhase": "Server Processing (High TTFB)",
+      "severity": "Critical"
+    },
+    {
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775982180347&f=298349752,318188263",
+      "method": "GET",
+      "avgDurationMs": 1087,
+      "maxDurationMs": 1087,
+      "callCount": 1,
+      "bottleneckPhase": "Network Error",
+      "severity": "High"
+    }
+  ],
+  "nplusOnePatterns": [],
+  "parallelizableGroups": [],
+  "redundantCalls": [],
+  "largePayloads": [],
+  "corsPreflights": [],
+  "compressionIssues": [],
+  "recommendations": [
+    {
+      "priority": "Critical",
+      "action": "Optimize server-side processing for the 'slow_external' endpoint. The 30-second Time To First Byte (TTFB) indicates a severe backend bottleneck that needs immediate attention.",
+      "effort": "High",
+      "codeExample": "N/A (server-side optimization required)"
+    },
+    {
+      "priority": "High",
+      "action": "Investigate the 'Network error' for the Optimizely engagement log. This could be due to network connectivity issues, ad blockers, or server-side misconfiguration preventing the request from completing successfully.",
+      "effort": "Medium",
+      "codeExample": "N/A (investigation/configuration required)"
+    },
+    {
+      "priority": "Medium",
+      "action": "Review all third-party analytics and logging calls (e.g., Optimizely) to ensure they are non-blocking and fail gracefully without impacting the core user experience or page load times.",
+      "effort": "Low",
+      "codeExample": "try {\n  fetch('https://298279967.log.optimizely.com/event?...', { method: 'GET', keepalive: true })\n    .then(response => {\n      if (!response.ok) {\n        console.warn('Optimizely log failed with status:', response.status);\n      }\n    })\n    .catch(error => console.error('Optimizely log network error:', error));\n} catch (e) {\n  console.error('Failed to initiate Optimizely log:', e);\n}"
+    }
+  ]
+}

@@ -11,7 +11,6 @@ target/
 
 # Logs
 *.log
-logs/
 
 # IDE
 .idea/
@@ -35,7 +34,8 @@ maven/
 backend/target/
 backend/error.log
 backend/output.log
-*.json (keep recording files)
+# backend build artifacts
+# (recording/analysis JSON files are in logs/ and should be committed)
 
 # API Keys (keep in env, not repo)
 *api*.txt

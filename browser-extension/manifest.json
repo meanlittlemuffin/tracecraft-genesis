@@ -1,12 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Session Replay",
-  "version": "1.0.0",
-  "description": "Record user sessions for debugging - clicks, network calls, console logs, and errors",
+  "name": "TraceCraft Genesis — Session Replay",
+  "version": "2.0.0",
+  "description": "Record complete browser sessions — clicks, network calls with payloads, console logs, errors, performance metrics — and analyze with AI",
   "permissions": [
     "activeTab",
     "storage",
-    "downloads"
+    "downloads",
+    "webRequest"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -20,8 +21,21 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "js": ["src/page-interceptor.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
       "js": ["src/content-script.js"],
-      "run_at": "document_start"
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/page-interceptor.js"],
+      "matches": ["<all_urls>"]
     }
   ]
 }

@@ -1,0 +1,507 @@
+{
+  "clicks": [
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://the-internet.herokuapp.com/",
+      "pageX": 320,
+      "pageY": 283,
+      "target": {
+        "ariaLabel": null,
+        "classes": [],
+        "cssSelector": "#content > ul > li:nth-of-type(4) > a",
+        "href": "https://the-internet.herokuapp.com/broken_images",
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 18,
+          "left": 275,
+          "top": 276,
+          "width": 108
+        },
+        "role": null,
+        "tag": "A",
+        "text": "Broken Images",
+        "type": null
+      },
+      "timestamp": 1775990944941,
+      "x": 320,
+      "y": 283
+    },
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://the-internet.herokuapp.com/",
+      "pageX": 318,
+      "pageY": 1259,
+      "target": {
+        "ariaLabel": null,
+        "classes": [],
+        "cssSelector": "#content > ul > li:nth-of-type(42) > a",
+        "href": "https://the-internet.herokuapp.com/status_codes",
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 18,
+          "left": 275,
+          "top": 662,
+          "width": 96
+        },
+        "role": null,
+        "tag": "A",
+        "text": "Status Codes",
+        "type": null
+      },
+      "timestamp": 1775990952218,
+      "x": 318,
+      "y": 672
+    },
+    {
+      "button": 0,
+      "modifiers": {
+        "alt": false,
+        "ctrl": false,
+        "meta": false,
+        "shift": false
+      },
+      "pageUrl": "https://the-internet.herokuapp.com/status_codes/500",
+      "pageX": 709,
+      "pageY": 151,
+      "target": {
+        "ariaLabel": null,
+        "classes": [],
+        "cssSelector": "#content > div > p > a",
+        "href": "https://the-internet.herokuapp.com/status_codes",
+        "id": null,
+        "name": null,
+        "rect": {
+          "height": 18,
+          "left": 699,
+          "top": 144,
+          "width": 32
+        },
+        "role": null,
+        "tag": "A",
+        "text": "here",
+        "type": null
+      },
+      "timestamp": 1775990958709,
+      "x": 709,
+      "y": 151
+    }
+  ],
+  "consoleLogs": [],
+  "errors": [],
+  "formSubmissions": [],
+  "keyboardEvents": [],
+  "longTasks": [],
+  "memorySnapshots": [
+    {
+      "jsHeapSizeLimit": 4294967296,
+      "timestamp": 1775990949170,
+      "totalJSHeapSize": 10622537,
+      "usedJSHeapSize": 9565829
+    }
+  ],
+  "metadata": {
+    "devicePixelRatio": 1.25,
+    "language": "en-US",
+    "screenHeight": 960,
+    "screenWidth": 1536,
+    "startTime": 1775990941586,
+    "startUrl": "https://the-internet.herokuapp.com/",
+    "stopTime": 1775990961677,
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+  },
+  "navigations": [],
+  "networkCalls": [
+    {
+      "duration": 77,
+      "error": "Network error",
+      "id": "tc_1775990944750_1",
+      "initiatorType": "xhr",
+      "method": "GET",
+      "pageUrl": "https://the-internet.herokuapp.com/",
+      "status": 0,
+      "timestamp": 1775990944750,
+      "type": "xhr",
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990944730&f=298349752,318188263"
+    }
+  ],
+  "performanceTimings": [
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 1416,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990941588,
+      "tlsHandshake": 0,
+      "totalDuration": 97,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2F&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990938314&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 7830,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990944827,
+      "tlsHandshake": 0,
+      "totalDuration": 76,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990944730&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 490,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990952709,
+      "tlsHandshake": 0,
+      "totalDuration": 88,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990944730&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 490,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990952709,
+      "tlsHandshake": 0,
+      "totalDuration": 88,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2F&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990938314&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 490,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990952710,
+      "tlsHandshake": 0,
+      "totalDuration": 89,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fbroken_images&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990945356&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 490,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990952710,
+      "tlsHandshake": 0,
+      "totalDuration": 89,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fstatus_codes&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990952618&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 415,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990955751,
+      "tlsHandshake": 0,
+      "totalDuration": 56,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2F&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990938314&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 415,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990955752,
+      "tlsHandshake": 0,
+      "totalDuration": 58,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fstatus_codes&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990952618&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 415,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990955752,
+      "tlsHandshake": 0,
+      "totalDuration": 57,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fbroken_images&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990945356&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 415,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990955752,
+      "tlsHandshake": 0,
+      "totalDuration": 56,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990944730&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 415,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990955752,
+      "tlsHandshake": 0,
+      "totalDuration": 60,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fstatus_codes%2F500&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990955690&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 415,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990955752,
+      "tlsHandshake": 0,
+      "totalDuration": 59,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990955131&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 421,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990959132,
+      "tlsHandshake": 0,
+      "totalDuration": 61,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fstatus_codes&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990952618&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 421,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990959132,
+      "tlsHandshake": 0,
+      "totalDuration": 61,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fbroken_images&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990945356&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 421,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990959132,
+      "tlsHandshake": 0,
+      "totalDuration": 62,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990958484&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 421,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990959132,
+      "tlsHandshake": 0,
+      "totalDuration": 62,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990955131&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 421,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990959132,
+      "tlsHandshake": 0,
+      "totalDuration": 62,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fstatus_codes&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990959067&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 421,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990959132,
+      "tlsHandshake": 0,
+      "totalDuration": 62,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fstatus_codes%2F500&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990955690&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 447,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990959159,
+      "tlsHandshake": 0,
+      "totalDuration": 87,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990944730&f=298349752,318188263"
+    },
+    {
+      "decodedBodySize": 0,
+      "dnsLookup": 0,
+      "downloadTime": 448,
+      "encodedBodySize": 0,
+      "initiatorType": "xmlhttprequest",
+      "nextHopProtocol": null,
+      "tcpConnect": 0,
+      "timestamp": 1775990959159,
+      "tlsHandshake": 0,
+      "totalDuration": 87,
+      "transferSize": 0,
+      "ttfb": 0,
+      "url": "https://298279967.log.optimizely.com/event?a=298279967&d=298279967&y=false&n=https%3A%2F%2Fthe-internet.herokuapp.com%2F&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990938314&f=298349752,318188263"
+    }
+  ],
+  "scrollEvents": [
+    {
+      "pageHeight": 1378,
+      "pageUrl": "https://the-internet.herokuapp.com/",
+      "scrollX": 0,
+      "scrollY": 25,
+      "timestamp": 1775990950134,
+      "viewportHeight": 791
+    },
+    {
+      "pageHeight": 1378,
+      "pageUrl": "https://the-internet.herokuapp.com/",
+      "scrollX": 0,
+      "scrollY": 552,
+      "timestamp": 1775990950458,
+      "viewportHeight": 791
+    },
+    {
+      "pageHeight": 1378,
+      "pageUrl": "https://the-internet.herokuapp.com/",
+      "scrollX": 0,
+      "scrollY": 563,
+      "timestamp": 1775990950784,
+      "viewportHeight": 791
+    }
+  ],
+  "visibilityChanges": [
+    {
+      "pageUrl": "https://the-internet.herokuapp.com/",
+      "state": "hidden",
+      "timestamp": 1775990945318
+    },
+    {
+      "pageUrl": "https://the-internet.herokuapp.com/",
+      "state": "visible",
+      "timestamp": 1775990949165
+    }
+  ],
+  "webVitals": {
+    "domComplete": {
+      "timestamp": 1775990959082,
+      "value": 0
+    },
+    "domInteractive": {
+      "timestamp": 1775990959082,
+      "value": 0
+    },
+    "inp": {
+      "sampleCount": 3,
+      "timestamp": 1775990944962,
+      "value": 24
+    },
+    "lcp": {
+      "element": "P",
+      "size": 89415,
+      "timestamp": 1775990959123,
+      "url": null,
+      "value": 396
+    },
+    "ttfb": {
+      "timestamp": 1775990959082,
+      "value": 313
+    }
+  }
+}

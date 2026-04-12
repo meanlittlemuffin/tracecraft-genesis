@@ -1,0 +1,163 @@
+{
+  "summary": "The user navigated through several pages on `the-internet.herokuapp.com`, starting from the homepage, then to 'Broken Images', 'Status Codes', and finally clicked a link leading to a '500' status page. A critical network error occurred for an Optimizely analytics call, potentially leading to data loss. Additionally, numerous redundant analytics calls were observed throughout the session, indicating an inefficient tracking implementation.",
+  "healthScore": 85,
+  "issues": [
+    {
+      "id": "network-error-001",
+      "category": "Network",
+      "severity": "High",
+      "severityScore": 70,
+      "title": "Optimizely Analytics Call Failed",
+      "description": "An XHR request to Optimizely's logging endpoint failed with a 'Network error' (status 0). This indicates a potential issue with the analytics integration, network connectivity, or ad blocker interference, leading to a loss of user engagement data.",
+      "evidence": [
+        {
+          "eventType": "network",
+          "timestamp": 1775990944750,
+          "detail": "GET https://298279967.log.optimizely.com/event?... status: 0, error: Network error"
+        }
+      ],
+      "impact": {
+        "timeWastedMs": 0,
+        "bandwidthWastedBytes": 0,
+        "description": "Potential loss of user engagement data for analytics."
+      }
+    },
+    {
+      "id": "performance-redundant-calls-001",
+      "category": "Performance",
+      "severity": "Medium",
+      "severityScore": 50,
+      "title": "Excessive/Redundant Analytics Calls",
+      "description": "Multiple identical or very similar Optimizely analytics calls are being made within short intervals (e.g., 'engagement' and various pageview events). This suggests redundant tracking logic, potentially from event listeners firing multiple times or pageview tracking not being debounced/throttled, leading to unnecessary network traffic and slight performance overhead.",
+      "evidence": [
+        {
+          "eventType": "performanceTiming",
+          "timestamp": 1775990952709,
+          "detail": "URL: https://298279967.log.optimizely.com/event?...n=https%3A%2F%2Fthe-internet.herokuapp.com%2F (repeated)"
+        },
+        {
+          "eventType": "performanceTiming",
+          "timestamp": 1775990952710,
+          "detail": "URL: https://298279967.log.optimizely.com/event?...n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fbroken_images (repeated)"
+        },
+        {
+          "eventType": "performanceTiming",
+          "timestamp": 1775990955752,
+          "detail": "URL: https://298279967.log.optimizely.com/event?...n=engagement&g=298283957 (repeated)"
+        },
+        {
+          "eventType": "performanceTiming",
+          "timestamp": 1775990959132,
+          "detail": "Multiple Optimizely calls with similar URLs and timestamps."
+        }
+      ],
+      "impact": {
+        "timeWastedMs": 100,
+        "bandwidthWastedBytes": 1000,
+        "description": "Minor performance overhead and increased network traffic due to duplicate analytics requests. While payload sizes are zero, header data is still transferred."
+      }
+    }
+  ],
+  "networkReport": {
+    "summary": "One critical network error for an analytics endpoint was observed. Additionally, there are numerous redundant calls to the Optimizely analytics service, indicating potential inefficiencies in tracking implementation. All successful requests were fast, with no large payloads.",
+    "networkHealthScore": 75,
+    "totalRequests": 21,
+    "failedRequests": 1,
+    "totalDurationMs": 1462,
+    "slowEndpoints": [],
+    "nplusOnePatterns": [],
+    "parallelizableGroups": [],
+    "redundantCalls": [
+      {
+        "urlPattern": "https://298279967.log.optimizely.com/event?...n=https%3A%2F%2Fthe-internet.herokuapp.com%2F",
+        "count": 4,
+        "timestamps": [
+          1775990941588,
+          1775990952709,
+          1775990955751,
+          1775990959159
+        ]
+      },
+      {
+        "urlPattern": "https://298279967.log.optimizely.com/event?...n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990944730...",
+        "count": 4,
+        "timestamps": [
+          1775990944827,
+          1775990952709,
+          1775990955752,
+          1775990959159
+        ]
+      },
+      {
+        "urlPattern": "https://298279967.log.optimizely.com/event?...n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fbroken_images",
+        "count": 3,
+        "timestamps": [
+          1775990952710,
+          1775990955752,
+          1775990959132
+        ]
+      },
+      {
+        "urlPattern": "https://298279967.log.optimizely.com/event?...n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fstatus_codes",
+        "count": 4,
+        "timestamps": [
+          1775990952710,
+          1775990955752,
+          1775990959132,
+          1775990959132
+        ]
+      },
+      {
+        "urlPattern": "https://298279967.log.optimizely.com/event?...n=https%3A%2F%2Fthe-internet.herokuapp.com%2Fstatus_codes%2F500",
+        "count": 2,
+        "timestamps": [
+          1775990955752,
+          1775990959132
+        ]
+      },
+      {
+        "urlPattern": "https://298279967.log.optimizely.com/event?...n=engagement&g=298283957&u=oeu1775974901006r0.32544142108733576&wxhr=true&t=1775990955131...",
+        "count": 2,
+        "timestamps": [
+          1775990955752,
+          1775990959132
+        ]
+      }
+    ],
+    "largePayloads": [],
+    "corsPreflights": [],
+    "compressionIssues": [],
+    "recommendations": [
+      "Investigate the 'Network error' for the Optimizely analytics call to ensure reliable data collection.",
+      "Review Optimizely integration to identify and eliminate redundant analytics calls, reducing unnecessary network traffic."
+    ]
+  },
+  "uxReport": {
+    "summary": "The user successfully navigated through the site, following an apparent intentional path from the homepage to 'Broken Images', then 'Status Codes', and finally to a '500' status page. No explicit frustration events like rage clicks or dead clicks were detected. The core web vitals (LCP, INP, TTFB) indicate a good performance experience.",
+    "uxHealthScore": 95,
+    "rageClicks": [],
+    "deadClicks": [],
+    "navigationUturns": [],
+    "formAbandonmentDetected": false,
+    "frustrationEvents": [],
+    "recommendations": [
+      "Monitor user journeys that end on error pages (like the 500 page) to ensure they are intentional and not a result of unexpected issues, even on test sites."
+    ]
+  },
+  "recommendations": [
+    {
+      "priority": "High",
+      "action": "Investigate Optimizely Network Error",
+      "effort": "Medium",
+      "description": "A critical analytics call to Optimizely failed with a 'Network error' (status 0). This can lead to a loss of valuable user engagement data. Investigate potential causes such as network instability, ad blocker interference, or issues with the Optimizely script's loading or execution.",
+      "codeExample": "N/A (Requires debugging network conditions, server logs, or Optimizely integration setup.)"
+    },
+    {
+      "priority": "Medium",
+      "action": "Optimize Redundant Analytics Calls",
+      "effort": "Medium",
+      "description": "Multiple identical or very similar Optimizely analytics calls are being made within short timeframes. This creates unnecessary network traffic and minor performance overhead. Review the analytics tracking implementation to ensure events are fired only when necessary, perhaps by debouncing/throttling event listeners or ensuring pageview tracking is not duplicated on SPA route changes or multiple event triggers.",
+      "codeExample": "```javascript\n// Example: Prevent duplicate pageview tracking on SPA route changes\nlet lastTrackedPath = '';\nfunction trackPageView(path) {\n  if (path !== lastTrackedPath) {\n    // optimizely.track('pageview', { path: path });\n    console.log('Tracking pageview for:', path);\n    lastTrackedPath = path;\n  } else {\n    console.log('Skipping redundant pageview track for:', path);\n  }\n}\n\n// Example: Ensure event listeners are attached only once\n// document.removeEventListener('click', myAnalyticsHandler);\n// document.addEventListener('click', myAnalyticsHandler, { once: true }); // Or manage lifecycle manually\n```"
+    }
+  ]
+}
