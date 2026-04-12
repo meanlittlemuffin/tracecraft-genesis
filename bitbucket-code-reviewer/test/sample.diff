@@ -1,0 +1,20 @@
+diff --git a/src/auth.js b/src/auth.js
+index 1234567..abcdefg 100644
+--- a/src/auth.js
++++ b/src/auth.js
+@@ -1,8 +1,15 @@
++const crypto = require('crypto');
++
+ function authenticateUser(username, password) {
+-  const query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
+-  return db.query(query);
++  const user = db.query('SELECT * FROM users WHERE username = ?', [username]);
++  
++  if (!user || user.password !== password) {
++    return false;
++  }
++  
++  return user;
+ }
+
+ module.exports = { authenticateUser };

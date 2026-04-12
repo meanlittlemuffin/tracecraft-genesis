@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Replay</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Session Replay</h1>
+        <div class="status" id="status">Ready</div>
+        <div class="stats" id="stats">
+            <div class="stat">
+                <span class="label">Clicks:</span>
+                <span class="value" id="clickCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Network:</span>
+                <span class="value" id="networkCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Errors:</span>
+                <span class="value" id="errorCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Console:</span>
+                <span class="value" id="consoleCount">0</span>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="startBtn" class="btn primary">Start Recording</button>
+            <button id="stopBtn" class="btn danger" disabled>Stop Recording</button>
+            <button id="testBtn" class="btn secondary">Test Connection</button>
+            <button id="exportBtn" class="btn secondary" disabled>Export JSON</button>
+            <button id="sendApiBtn" class="btn secondary" disabled>Send to API</button>
+            <button id="clearBtn" class="btn secondary" disabled>Clear</button>
+        </div>
+        <div id="apiStatus" class="api-status"></div>
+        <div id="preview" class="preview" style="display:none;">
+            <h3>Recording Preview</h3>
+            <pre id="previewData"></pre>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

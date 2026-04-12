@@ -1,0 +1,178 @@
+{
+  "clicks": [
+    {
+      "className": "hs-input",
+      "id": "email-7e18a454-1995-49f5-a907-ddc7be450646",
+      "tag": "INPUT",
+      "text": "",
+      "timestamp": 1775662081780,
+      "url": "https://www.parasoft.com/contact/",
+      "x": 1299,
+      "y": 538
+    },
+    {
+      "className": "hs-input",
+      "id": "firstname-7e18a454-1995-49f5-a907-ddc7be450646",
+      "tag": "INPUT",
+      "text": "",
+      "timestamp": 1775662085150,
+      "url": "https://www.parasoft.com/contact/",
+      "x": 1198,
+      "y": 658
+    },
+    {
+      "className": "hs-input",
+      "id": "lastname-7e18a454-1995-49f5-a907-ddc7be450646",
+      "tag": "INPUT",
+      "text": "",
+      "timestamp": 1775662088845,
+      "url": "https://www.parasoft.com/contact/",
+      "x": 1578,
+      "y": 681
+    },
+    {
+      "className": "relative text-[16rem] font-bold transition-colors duration-250 flex justify-between items-center px-[24rem] py-[18rem] text-dark500 cursor-default\n\t\t\t\t\t\t\tmd:group-hover:text-blue300\n\t\t\t\t\t\t\tmd:leading-[40rem] md:block md:z-30 md:p-0",
+      "id": "",
+      "tag": "SPAN",
+      "text": "Products ",
+      "timestamp": 1775662090788,
+      "url": "https://www.parasoft.com/contact/",
+      "x": 660,
+      "y": 103
+    },
+    {
+      "className": "text-blue400 block text-[16rem] font-bold",
+      "id": "",
+      "tag": "SPAN",
+      "text": "C/C++test",
+      "timestamp": 1775662092025,
+      "url": "https://www.parasoft.com/contact/",
+      "x": 733,
+      "y": 225
+    },
+    {
+      "className": "theme-button blue-button m-0 h-[40rem] leading-[38rem] py-0 px-[24rem] text-[14rem]",
+      "id": "",
+      "tag": "A",
+      "text": "Trials & Demos",
+      "timestamp": 1775662097463,
+      "url": "https://www.parasoft.com/products/parasoft-c-ctest/",
+      "x": 1674,
+      "y": 100
+    },
+    {
+      "className": "relative bg-dark50 p-[16rem_16rem] text-[16rem] text-dark300 border-b-[1px] border-grey75 text-left cursor-pointer\n\t\t\t\t\t\tbefore:content-[''] before:absolute before:top-[50%] before:right-[15rem] before:w-[8rem] before:h-[8rem] before:translate-y-[-65%] before:border-t-[1rem] before:border-l-[1rem] before:border-mb300 before:rotate-[-135deg]",
+      "id": "",
+      "tag": "BUTTON",
+      "text": "Solutions",
+      "timestamp": 1775662100058,
+      "url": "https://www.parasoft.com/request-a-demo/",
+      "x": 445,
+      "y": 629
+    },
+    {
+      "className": "relative text-[16rem] font-bold transition-colors duration-250 flex justify-between items-center px-[24rem] py-[18rem] text-dark500 cursor-default\n\t\t\t\t\t\t\tmd:group-hover:text-blue300\n\t\t\t\t\t\t\tmd:leading-[40rem] md:block md:z-30 md:p-0",
+      "id": "",
+      "tag": "SPAN",
+      "text": "Industries ",
+      "timestamp": 1775662102514,
+      "url": "https://www.parasoft.com/request-a-demo/",
+      "x": 919,
+      "y": 91
+    },
+    {
+      "className": "block text-[15rem] @max-md:first:pt-[16rem] py-[8rem] md:py-[6rem] transition-colors hover:text-blue300\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tmd:text-[16rem] md:py-[6rem] md:font-bold md:border-0 text-dark500\t\t\t\t\t\t\t",
+      "id": "",
+      "tag": "A",
+      "text": "Hospitality & Travel",
+      "timestamp": 1775662103908,
+      "url": "https://www.parasoft.com/request-a-demo/",
+      "x": 1062,
+      "y": 361
+    }
+  ],
+  "networkCalls": [],
+  "consoleLogs": [
+    {
+      "level": "log",
+      "message": "Recording started",
+      "timestamp": 1775662080090,
+      "url": "https://www.parasoft.com/contact/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 1",
+      "timestamp": 1775662081780,
+      "url": "https://www.parasoft.com/contact/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 2",
+      "timestamp": 1775662085150,
+      "url": "https://www.parasoft.com/contact/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 3",
+      "timestamp": 1775662088845,
+      "url": "https://www.parasoft.com/contact/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 4",
+      "timestamp": 1775662090789,
+      "url": "https://www.parasoft.com/contact/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 5",
+      "timestamp": 1775662092026,
+      "url": "https://www.parasoft.com/contact/"
+    },
+    {
+      "level": "log",
+      "message": "Session Replay: Resumed recording from storage. Clicks so far: 5",
+      "timestamp": 1775662092221,
+      "url": "https://www.parasoft.com/products/parasoft-c-ctest/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 6",
+      "timestamp": 1775662097463,
+      "url": "https://www.parasoft.com/products/parasoft-c-ctest/"
+    },
+    {
+      "level": "log",
+      "message": "Session Replay: Resumed recording from storage. Clicks so far: 6",
+      "timestamp": 1775662097624,
+      "url": "https://www.parasoft.com/request-a-demo/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 7",
+      "timestamp": 1775662100058,
+      "url": "https://www.parasoft.com/request-a-demo/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 8",
+      "timestamp": 1775662102514,
+      "url": "https://www.parasoft.com/request-a-demo/"
+    },
+    {
+      "level": "log",
+      "message": "Click captured. Total: 9",
+      "timestamp": 1775662103908,
+      "url": "https://www.parasoft.com/request-a-demo/"
+    },
+    {
+      "level": "log",
+      "message": "Session Replay: Resumed recording from storage. Clicks so far: 9",
+      "timestamp": 1775662104607,
+      "url": "https://www.parasoft.com/industries/enterprise/travel-hospitality/"
+    }
+  ],
+  "errors": [],
+  "url": "",
+  "exportedAt": "2026-04-08T15:29:34.340Z"
+}

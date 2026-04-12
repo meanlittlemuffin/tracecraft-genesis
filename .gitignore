@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Maven
+.mvn/
+maven/
+
+# Backend specific
+backend/target/
+backend/error.log
+backend/output.log
+*.json (keep recording files)
+
+# API Keys (keep in env, not repo)
+*api*.txt
+*key*.txt

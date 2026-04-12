@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: session-replay
+
+completions:
+  api-key: sk-cp_4aba4c583f5559e719e471c1cb88ea45743a68e79ef2aa3a
+  base-url: https://completions.me/api/v1
+  model: claude-opus-4.6
+
+logging:
+  level:
+    root: INFO
