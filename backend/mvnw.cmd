@@ -1,6 +1,7 @@
 @REM Maven Wrapper startup batch script
 @echo off
 
-set "WRAPPER_JAR=%~dp0.mvn\wrapper\maven-wrapper.jar"
+set "BASEDIR=%~dp0"
+set "WRAPPER_JAR=%BASEDIR%.mvn\wrapper\maven-wrapper.jar"
 
-java -Dmaven.multiModuleProjectDirectory="%~dp0" -cp "%WRAPPER_JAR%" org.apache.maven.wrapper.MavenWrapperMain %*
+java "-Dmaven.multiModuleProjectDirectory=%BASEDIR%." -cp "%WRAPPER_JAR%" org.apache.maven.wrapper.MavenWrapperMain %*
