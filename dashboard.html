@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TraceCraft Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0d1117;
+            color: #e6edf3;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+            border-bottom: 1px solid #30363d;
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            color: #58a6ff !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #238636, #2ea043);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .main-content {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .stat-label {
+            color: #8b949e;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .health-good { color: #3fb950; }
+        .health-medium { color: #d29922; }
+        .health-poor { color: #f85149; }
+        
+        .chart-container {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .chart-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e6edf3;
+        }
+        
+        .sessions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .sessions-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .session-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .session-card:hover {
+            border-color: #58a6ff;
+            transform: translateX(4px);
+            background: #1c2128;
+        }
+        
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .session-date {
+            color: #8b949e;
+            font-size: 0.875rem;
+        }
+        
+        .session-type {
+            background: #21262d;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #8b949e;
+            text-transform: uppercase;
+        }
+        
+        .session-type.analyze { background: #1f3b5c; color: #58a6ff; }
+        .session-type.bug-diagnosis { background: #5c1f1f; color: #f85149; }
+        .session-type.network-bottlenecks { background: #5c3b1f; color: #d29922; }
+        .session-type.recording { background: #1f5c3b; color: #3fb950; }
+        
+        .session-url {
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: #58a6ff;
+            margin-bottom: 0.75rem;
+            word-break: break-all;
+        }
+        
+        .session-issue {
+            color: #f85149;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .session-issue-empty {
+            color: #3fb950;
+            font-size: 0.875rem;
+        }
+        
+        .session-link {
+            color: #8b949e;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .session-link:hover {
+            color: #58a6ff;
+        }
+        
+        .badge-health {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .badge-health.good { background: rgba(63, 185, 80, 0.15); color: #3fb950; }
+        .badge-health.medium { background: rgba(210, 153, 34, 0.15); color: #d29922; }
+        .badge-health.poor { background: rgba(248, 81, 73, 0.15); color: #f85149; }
+        
+        .modal-content {
+            background: #161b22;
+            border: 1px solid #30363d;
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid #30363d;
+            background: #0d1117;
+        }
+        
+        .modal-body {
+            padding: 0;
+        }
+        
+        .modal-footer {
+            border-top: 1px solid #30363d;
+            background: #0d1117;
+        }
+        
+        .btn-close {
+            filter: invert(1);
+        }
+        
+        .json-viewer {
+            background: #0d1117;
+            padding: 1rem;
+            max-height: 60vh;
+            overflow: auto;
+            font-family: 'Consolas', monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #8b949e;
+        }
+        
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #30363d;
+            border-top-color: #58a6ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #8b949e;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        .btn-primary {
+            background: #238636;
+            border-color: #238636;
+        }
+        
+        .btn-primary:hover {
+            background: #2ea043;
+            border-color: #2ea043;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid px-4">
+            <span class="navbar-brand">
+                <span class="brand-icon"><i class="bi bi-graph-up-arrow text-white"></i></span>
+                TraceCraft Dashboard
+            </span>
+            <button class="btn btn-primary" onclick="loadSessions()">
+                <i class="bi bi-arrow-clockwise"></i> Refresh
+            </button>
+        </div>
+    </nav>
+    
+    <div class="main-content">
+        <div class="stats-cards" id="statsCards">
+            <div class="stat-card">
+                <div class="stat-value" id="totalSessions">0</div>
+                <div class="stat-label">Total Sessions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value health-good" id="avgHealth">0%</div>
+                <div class="stat-label">Avg Health Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value health-medium" id="totalIssues">0</div>
+                <div class="stat-label">Total Issues</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalRecordings">0</div>
+                <div class="stat-label">Recordings</div>
+            </div>
+        </div>
+        
+        <div class="chart-container" id="chartContainer" style="display: none;">
+            <div class="chart-title">
+                <i class="bi bi-bar-chart-fill"></i> Health Scores
+            </div>
+            <canvas id="healthChart" height="80"></canvas>
+        </div>
+        
+        <div class="sessions-header">
+            <span class="sessions-title">
+                <i class="bi bi-collection"></i> Sessions
+            </span>
+            <span class="text-muted" id="sessionCount"></span>
+        </div>
+        
+        <div id="sessionsList">
+            <div class="loading">Loading sessions...</div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="jsonModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Session Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <pre class="json-viewer" id="jsonViewer"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="#" class="btn btn-primary" id="downloadLink" download>
+                        <i class="bi bi-download"></i> Download JSON
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let sessions = [];
+        let healthChart = null;
+        
+        async function loadSessions() {
+            const listEl = document.getElementById('sessionsList');
+            listEl.innerHTML = '<div class="loading">Loading sessions...</div>';
+            
+            try {
+                const response = await fetch('/api/dashboard/sessions');
+                sessions = await response.json();
+                renderStats();
+                renderChart();
+                renderSessions();
+            } catch (error) {
+                listEl.innerHTML = `<div class="empty-state">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <div>Failed to load sessions</div>
+                    <small>${error.message}</small>
+                </div>`;
+            }
+        }
+        
+        function renderStats() {
+            document.getElementById('totalSessions').textContent = sessions.length;
+            
+            let totalHealth = 0;
+            let healthCount = 0;
+            let totalIssues = 0;
+            let recordings = 0;
+            
+            sessions.forEach(s => {
+                if (s.healthScore > 0) {
+                    totalHealth += s.healthScore;
+                    healthCount++;
+                }
+                totalIssues += s.issueCount;
+                if (s.hasRecording) recordings++;
+            });
+            
+            const avgHealth = healthCount > 0 ? Math.round(totalHealth / healthCount) : 0;
+            const healthEl = document.getElementById('avgHealth');
+            healthEl.textContent = avgHealth + '%';
+            healthEl.className = 'stat-value ' + getHealthClass(avgHealth);
+            
+            document.getElementById('totalIssues').textContent = totalIssues;
+            document.getElementById('totalRecordings').textContent = recordings;
+            document.getElementById('sessionCount').textContent = sessions.length + ' sessions';
+        }
+        
+        function renderChart() {
+            const container = document.getElementById('chartContainer');
+            if (sessions.length === 0) {
+                container.style.display = 'none';
+                return;
+            }
+            container.style.display = 'block';
+            
+            const ctx = document.getElementById('healthChart').getContext('2d');
+            
+            if (healthChart) {
+                healthChart.destroy();
+            }
+            
+            const labels = sessions.map((s, i) => formatDate(s.timestamp));
+            const data = sessions.map(s => s.healthScore);
+            const colors = data.map(score => getHealthColor(score));
+            
+            healthChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Health Score',
+                        data: data,
+                        backgroundColor: colors,
+                        borderRadius: 6,
+                        borderSkipped: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: '#30363d' },
+                            ticks: { color: '#8b949e' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#8b949e', maxRotation: 45 }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function renderSessions() {
+            const listEl = document.getElementById('sessionsList');
+            
+            if (sessions.length === 0) {
+                listEl.innerHTML = `<div class="empty-state">
+                    <i class="bi bi-folder2-open"></i>
+                    <div>No sessions found</div>
+                    <small>Run a recording from the browser extension to see data here</small>
+                </div>`;
+                return;
+            }
+            
+            listEl.innerHTML = sessions.map(session => `
+                <div class="session-card" onclick="showSession('${session.fileName}')">
+                    <div class="session-header">
+                        <span class="session-date">
+                            <i class="bi bi-calendar3"></i> ${formatDate(session.timestamp)}
+                        </span>
+                        <span class="session-type ${session.type}">${session.type}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <span class="badge-health ${getHealthClass(session.healthScore)}">
+                            ${session.healthScore > 0 ? session.healthScore + '%' : 'N/A'}
+                        </span>
+                        ${session.issueCount > 0 ? `<span class="text-muted">${session.issueCount} issues</span>` : ''}
+                    </div>
+                    <div class="session-url">${session.url || 'No URL'}</div>
+                    ${session.topIssue ? `<div class="session-issue"><i class="bi bi-exclamation-triangle"></i> ${session.topIssue}</div>` : 
+                      `<div class="session-issue-empty"><i class="bi bi-check-circle"></i> No issues detected</div>`}
+                    ${session.hasRecording ? `<a href="#" class="session-link" onclick="event.stopPropagation(); showSession('${session.recordingFile}')">
+                        <i class="bi bi-file-earmark-medical"></i> View Raw Recording
+                    </a>` : ''}
+                </div>
+            `).join('');
+        }
+        
+        async function showSession(fileName) {
+            const modal = new bootstrap.Modal(document.getElementById('jsonModal'));
+            const viewer = document.getElementById('jsonViewer');
+            const title = document.getElementById('modalTitle');
+            const downloadLink = document.getElementById('downloadLink');
+            
+            viewer.textContent = 'Loading...';
+            title.textContent = fileName;
+            downloadLink.href = '/api/dashboard/session/' + encodeURIComponent(fileName);
+            
+            modal.show();
+            
+            try {
+                const response = await fetch('/api/dashboard/session/' + encodeURIComponent(fileName));
+                const data = await response.json();
+                viewer.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                viewer.textContent = 'Error loading file: ' + error.message;
+            }
+        }
+        
+        function formatDate(timestamp) {
+            if (!timestamp) return 'Unknown';
+            const date = new Date(timestamp);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                hour: '2-digit', 
+                minute: '2-digit'
+            });
+        }
+        
+        function getHealthClass(score) {
+            if (score >= 80) return 'good';
+            if (score >= 60) return 'medium';
+            return 'poor';
+        }
+        
+        function getHealthColor(score) {
+            if (score >= 80) return '#3fb950';
+            if (score >= 60) return '#d29922';
+            return '#f85149';
+        }
+        
+        loadSessions();
+    </script>
+</body>
+</html>

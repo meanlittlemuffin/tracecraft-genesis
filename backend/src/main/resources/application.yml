@@ -6,7 +6,7 @@ spring:
     name: session-replay
   ai:
     openai:
-      api-key: AIzaSyCWHjHfudqE7M_8ibcBjcHTqzwth3xQVrg
+      api-key: AIzaSyCZ57aAPogtarNAn9Z2_M_YP5kF7BJEmgU
       base-url: https://generativelanguage.googleapis.com/v1beta/openai/
       chat:
         options:
