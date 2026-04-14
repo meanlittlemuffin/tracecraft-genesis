@@ -52,7 +52,18 @@ cd backend
 
 Verify: `curl http://localhost:8080/api/health` should return `{"status":"UP"}`
 
-### 3. Load the Chrome Extension
+### 3. Open the Dashboard
+
+Once the backend is running, open the dashboard in your browser at:
+
+`http://localhost:8080/dashboard.html`
+
+The dashboard loads session summaries from:
+
+- `http://localhost:8080/api/dashboard/sessions`
+- `http://localhost:8080/api/dashboard/session/{fileName}`
+
+### 4. Load the Chrome Extension
 
 1. Go to `chrome://extensions/`
 2. Enable "Developer mode" (top right toggle)
@@ -80,6 +91,14 @@ Verify: `curl http://localhost:8080/api/health` should return `{"status":"UP"}`
 
 Wait ~30 seconds between analysis buttons to avoid Gemini free tier rate limits.
 
+### Dashboard
+
+The backend also serves a dashboard UI for browsing saved session outputs.
+
+- Open `http://localhost:8080/dashboard.html` in a browser
+- The page fetches session data from `/api/dashboard/sessions`
+- Clicking a session opens the full JSON from `/api/dashboard/session/{fileName}`
+
 ## What Gets Recorded
 
 - **Network calls**: Full URL, method, headers, request body, response body, status, duration, query params (for both fetch and XHR)
@@ -98,6 +117,8 @@ Wait ~30 seconds between analysis buttons to avoid Gemini free tier rate limits.
 | `/api/analyze` | POST | Full session analysis with structured JSON response |
 | `/api/network-bottlenecks` | POST | Network performance analysis |
 | `/api/bug-diagnosis` | POST | Root cause, bug report, and reproduction steps |
+| `/api/dashboard/sessions` | GET | List saved dashboard session summaries |
+| `/api/dashboard/session/{fileName}` | GET | Load a specific saved session JSON |
 
 ## Test Websites
 

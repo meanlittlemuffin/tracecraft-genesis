@@ -105,6 +105,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
         
         .sessions-title {
@@ -160,6 +162,13 @@
             color: #58a6ff;
             margin-bottom: 0.75rem;
             word-break: break-all;
+        }
+
+        .session-file {
+            color: #8b949e;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Consolas', monospace;
         }
         
         .session-issue {
@@ -231,7 +240,37 @@
             white-space: pre-wrap;
             word-break: break-all;
         }
-        
+
+        .modal-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+            padding: 1rem;
+            border-bottom: 1px solid #30363d;
+            background: #0d1117;
+        }
+
+        .summary-item {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 0.75rem;
+        }
+
+        .summary-label {
+            color: #8b949e;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.35rem;
+        }
+
+        .summary-value {
+            color: #e6edf3;
+            font-size: 0.95rem;
+            word-break: break-word;
+        }
+
         .loading {
             text-align: center;
             padding: 3rem;
@@ -275,6 +314,43 @@
         .btn-primary:hover {
             background: #2ea043;
             border-color: #2ea043;
+        }
+
+        .controls-bar {
+            display: grid;
+            grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(140px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-control,
+        .form-select {
+            background: #161b22;
+            color: #e6edf3;
+            border: 1px solid #30363d;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            background: #161b22;
+            color: #e6edf3;
+            border-color: #58a6ff;
+            box-shadow: 0 0 0 0.2rem rgba(88, 166, 255, 0.15);
+        }
+
+        .meta-text {
+            color: #8b949e;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .controls-bar {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -322,7 +398,26 @@
             <span class="sessions-title">
                 <i class="bi bi-collection"></i> Sessions
             </span>
-            <span class="text-muted" id="sessionCount"></span>
+            <span class="meta-text" id="sessionMeta">0 sessions</span>
+        </div>
+
+        <div class="controls-bar">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search by URL, file name, or issue">
+            <select class="form-select" id="typeFilter">
+                <option value="all">All types</option>
+            </select>
+            <select class="form-select" id="healthFilter">
+                <option value="all">All health</option>
+                <option value="good">Health 80%+</option>
+                <option value="medium">Health 60-79%</option>
+                <option value="poor">Health below 60%</option>
+                <option value="na">No score</option>
+            </select>
+            <select class="form-select" id="recordingFilter">
+                <option value="all">All sessions</option>
+                <option value="with-recording">Has recording</option>
+                <option value="without-recording">No recording</option>
+            </select>
         </div>
         
         <div id="sessionsList">
@@ -338,10 +433,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="modal-summary" id="modalSummary"></div>
                     <pre class="json-viewer" id="jsonViewer"></pre>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" id="copyJsonButton">
+                        <i class="bi bi-clipboard"></i> Copy JSON
+                    </button>
                     <a href="#" class="btn btn-primary" id="downloadLink" download>
                         <i class="bi bi-download"></i> Download JSON
                     </a>
@@ -352,73 +451,94 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        let sessions = [];
-        let healthChart = null;
-        
-        async function loadSessions() {
-            const listEl = document.getElementById('sessionsList');
+        var sessions = [];
+        var filteredSessions = [];
+        var healthChart = null;
+        var currentSessionJson = '';
+
+        function loadSessions() {
+            var listEl = document.getElementById('sessionsList');
             listEl.innerHTML = '<div class="loading">Loading sessions...</div>';
-            
-            try {
-                const response = await fetch('/api/dashboard/sessions');
-                sessions = await response.json();
-                renderStats();
-                renderChart();
-                renderSessions();
-            } catch (error) {
-                listEl.innerHTML = `<div class="empty-state">
-                    <i class="bi bi-exclamation-triangle"></i>
-                    <div>Failed to load sessions</div>
-                    <small>${error.message}</small>
-                </div>`;
-            }
+
+            fetch('/api/dashboard/sessions')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    sessions = data;
+                    populateTypeFilter();
+                    renderStats();
+                    renderChart();
+                    renderSessions();
+                    updateLastRefreshed();
+                })
+                .catch(function(error) {
+                    listEl.innerHTML =
+                        '<div class="empty-state">' +
+                        '<i class="bi bi-exclamation-triangle"></i>' +
+                        '<div>Failed to load sessions</div>' +
+                        '<small>' + escapeHtml(error.message) + '</small>' +
+                        '<div class="mt-2">Make sure the backend is running and the logs folder contains saved session JSON files.</div>' +
+                        '</div>';
+                });
         }
-        
+
         function renderStats() {
+            var totalHealth = 0;
+            var healthCount = 0;
+            var totalIssues = 0;
+            var recordings = 0;
+            var i;
+
             document.getElementById('totalSessions').textContent = sessions.length;
-            
-            let totalHealth = 0;
-            let healthCount = 0;
-            let totalIssues = 0;
-            let recordings = 0;
-            
-            sessions.forEach(s => {
-                if (s.healthScore > 0) {
-                    totalHealth += s.healthScore;
+
+            for (i = 0; i < sessions.length; i++) {
+                if (sessions[i].healthScore > 0) {
+                    totalHealth += sessions[i].healthScore;
                     healthCount++;
                 }
-                totalIssues += s.issueCount;
-                if (s.hasRecording) recordings++;
-            });
-            
-            const avgHealth = healthCount > 0 ? Math.round(totalHealth / healthCount) : 0;
-            const healthEl = document.getElementById('avgHealth');
+                totalIssues += sessions[i].issueCount;
+                if (sessions[i].hasRecording) {
+                    recordings++;
+                }
+            }
+
+            var avgHealth = healthCount > 0 ? Math.round(totalHealth / healthCount) : 0;
+            var healthEl = document.getElementById('avgHealth');
             healthEl.textContent = avgHealth + '%';
             healthEl.className = 'stat-value ' + getHealthClass(avgHealth);
-            
+
             document.getElementById('totalIssues').textContent = totalIssues;
             document.getElementById('totalRecordings').textContent = recordings;
-            document.getElementById('sessionCount').textContent = sessions.length + ' sessions';
+            updateSessionMeta();
         }
-        
+
         function renderChart() {
-            const container = document.getElementById('chartContainer');
+            var container = document.getElementById('chartContainer');
+            var ctx;
+            var labels = [];
+            var data = [];
+            var colors = [];
+            var i;
+
             if (sessions.length === 0) {
                 container.style.display = 'none';
                 return;
             }
+
             container.style.display = 'block';
-            
-            const ctx = document.getElementById('healthChart').getContext('2d');
-            
+            ctx = document.getElementById('healthChart').getContext('2d');
+
             if (healthChart) {
                 healthChart.destroy();
             }
-            
-            const labels = sessions.map((s, i) => formatDate(s.timestamp));
-            const data = sessions.map(s => s.healthScore);
-            const colors = data.map(score => getHealthColor(score));
-            
+
+            for (i = 0; i < sessions.length; i++) {
+                labels.push(formatDate(sessions[i].timestamp));
+                data.push(sessions[i].healthScore);
+                colors.push(getHealthColor(sessions[i].healthScore));
+            }
+
             healthChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -428,7 +548,7 @@
                         data: data,
                         backgroundColor: colors,
                         borderRadius: 6,
-                        borderSkipped: false,
+                        borderSkipped: false
                     }]
                 },
                 options: {
@@ -451,64 +571,261 @@
                 }
             });
         }
-        
+
         function renderSessions() {
-            const listEl = document.getElementById('sessionsList');
-            
+            var listEl = document.getElementById('sessionsList');
+            var html = [];
+            var i;
+            var session;
+
+            filteredSessions = getFilteredSessions();
+            updateSessionMeta();
+
             if (sessions.length === 0) {
-                listEl.innerHTML = `<div class="empty-state">
-                    <i class="bi bi-folder2-open"></i>
-                    <div>No sessions found</div>
-                    <small>Run a recording from the browser extension to see data here</small>
-                </div>`;
+                listEl.innerHTML =
+                    '<div class="empty-state">' +
+                    '<i class="bi bi-folder2-open"></i>' +
+                    '<div>No sessions found</div>' +
+                    '<small>Run a recording from the browser extension to see data here</small>' +
+                    '<div class="mt-2">This dashboard reads saved .json files from the project logs folder.</div>' +
+                    '</div>';
                 return;
             }
-            
-            listEl.innerHTML = sessions.map(session => `
-                <div class="session-card" onclick="showSession('${session.fileName}')">
-                    <div class="session-header">
-                        <span class="session-date">
-                            <i class="bi bi-calendar3"></i> ${formatDate(session.timestamp)}
-                        </span>
-                        <span class="session-type ${session.type}">${session.type}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                        <span class="badge-health ${getHealthClass(session.healthScore)}">
-                            ${session.healthScore > 0 ? session.healthScore + '%' : 'N/A'}
-                        </span>
-                        ${session.issueCount > 0 ? `<span class="text-muted">${session.issueCount} issues</span>` : ''}
-                    </div>
-                    <div class="session-url">${session.url || 'No URL'}</div>
-                    ${session.topIssue ? `<div class="session-issue"><i class="bi bi-exclamation-triangle"></i> ${session.topIssue}</div>` : 
-                      `<div class="session-issue-empty"><i class="bi bi-check-circle"></i> No issues detected</div>`}
-                    ${session.hasRecording ? `<a href="#" class="session-link" onclick="event.stopPropagation(); showSession('${session.recordingFile}')">
-                        <i class="bi bi-file-earmark-medical"></i> View Raw Recording
-                    </a>` : ''}
-                </div>
-            `).join('');
+
+            if (filteredSessions.length === 0) {
+                listEl.innerHTML =
+                    '<div class="empty-state">' +
+                    '<i class="bi bi-search"></i>' +
+                    '<div>No sessions match your filters</div>' +
+                    '<small>Try clearing the search or changing the filters above.</small>' +
+                    '</div>';
+                return;
+            }
+
+            for (i = 0; i < filteredSessions.length; i++) {
+                session = filteredSessions[i];
+                html.push(
+                    '<div class="session-card" onclick="showSession(\'' + escapeJsString(session.fileName) + '\')">' +
+                    '<div class="session-header">' +
+                    '<span class="session-date"><i class="bi bi-calendar3"></i> ' + escapeHtml(formatDate(session.timestamp)) + '</span>' +
+                    '<span class="session-type ' + escapeHtml(session.type || 'unknown') + '">' + escapeHtml(session.type || 'unknown') + '</span>' +
+                    '</div>' +
+                    '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">' +
+                    '<span class="badge-health ' + getHealthClass(session.healthScore) + '">' +
+                    (session.healthScore > 0 ? escapeHtml(String(session.healthScore)) + '%' : 'N/A') +
+                    '</span>' +
+                    (session.issueCount > 0 ? '<span class="text-muted">' + escapeHtml(String(session.issueCount)) + ' issues</span>' : '') +
+                    '</div>' +
+                    '<div class="session-file">' + escapeHtml(session.fileName || '') + '</div>' +
+                    '<div class="session-url">' + escapeHtml(session.url || 'No URL') + '</div>' +
+                    (session.topIssue
+                        ? '<div class="session-issue"><i class="bi bi-exclamation-triangle"></i> ' + escapeHtml(session.topIssue) + '</div>'
+                        : '<div class="session-issue-empty"><i class="bi bi-check-circle"></i> No issues detected</div>') +
+                    (session.hasRecording
+                        ? '<a href="#" class="session-link" onclick="event.stopPropagation(); showSession(\'' + escapeJsString(session.recordingFile) + '\'); return false;">' +
+                          '<i class="bi bi-file-earmark-medical"></i> View Raw Recording</a>'
+                        : '') +
+                    '</div>'
+                );
+            }
+
+            listEl.innerHTML = html.join('');
         }
-        
-        async function showSession(fileName) {
-            const modal = new bootstrap.Modal(document.getElementById('jsonModal'));
-            const viewer = document.getElementById('jsonViewer');
-            const title = document.getElementById('modalTitle');
-            const downloadLink = document.getElementById('downloadLink');
-            
+
+        function showSession(fileName) {
+            var modal = new bootstrap.Modal(document.getElementById('jsonModal'));
+            var viewer = document.getElementById('jsonViewer');
+            var title = document.getElementById('modalTitle');
+            var downloadLink = document.getElementById('downloadLink');
+            var summary = document.getElementById('modalSummary');
+            var selected = findSessionByFileName(fileName);
+
             viewer.textContent = 'Loading...';
             title.textContent = fileName;
             downloadLink.href = '/api/dashboard/session/' + encodeURIComponent(fileName);
-            
+            currentSessionJson = '';
+            summary.innerHTML = buildModalSummary(selected, fileName);
+
             modal.show();
-            
-            try {
-                const response = await fetch('/api/dashboard/session/' + encodeURIComponent(fileName));
-                const data = await response.json();
-                viewer.textContent = JSON.stringify(data, null, 2);
-            } catch (error) {
-                viewer.textContent = 'Error loading file: ' + error.message;
-            }
+
+            fetch('/api/dashboard/session/' + encodeURIComponent(fileName))
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    currentSessionJson = JSON.stringify(data, null, 2);
+                    viewer.textContent = currentSessionJson;
+                })
+                .catch(function(error) {
+                    viewer.textContent = 'Error loading file: ' + error.message;
+                });
         }
-        
+
+        function buildModalSummary(session, fileName) {
+            var items = [
+                { label: 'File', value: fileName || 'Unknown' },
+                { label: 'Type', value: session.type || 'Unknown' },
+                { label: 'Captured', value: session.timestamp ? formatDate(session.timestamp) : 'Unknown' },
+                { label: 'Health', value: session.healthScore > 0 ? (session.healthScore + '%') : 'N/A' },
+                { label: 'Issues', value: session.issueCount >= 0 ? String(session.issueCount) : 'Unknown' },
+                { label: 'URL', value: session.url || 'No URL' }
+            ];
+            var html = [];
+            var i;
+
+            for (i = 0; i < items.length; i++) {
+                html.push(
+                    '<div class="summary-item">' +
+                    '<div class="summary-label">' + escapeHtml(items[i].label) + '</div>' +
+                    '<div class="summary-value">' + escapeHtml(items[i].value) + '</div>' +
+                    '</div>'
+                );
+            }
+
+            return html.join('');
+        }
+
+        function getFilteredSessions() {
+            var query = document.getElementById('searchInput').value.toLowerCase().trim();
+            var type = document.getElementById('typeFilter').value;
+            var health = document.getElementById('healthFilter').value;
+            var recording = document.getElementById('recordingFilter').value;
+            var results = [];
+            var i;
+            var session;
+            var haystack;
+            var score;
+
+            for (i = 0; i < sessions.length; i++) {
+                session = sessions[i];
+                haystack = ((session.url || '') + ' ' + (session.fileName || '') + ' ' + (session.topIssue || '')).toLowerCase();
+                score = session.healthScore;
+
+                if (query && haystack.indexOf(query) === -1) {
+                    continue;
+                }
+                if (type !== 'all' && session.type !== type) {
+                    continue;
+                }
+                if (recording === 'with-recording' && !session.hasRecording) {
+                    continue;
+                }
+                if (recording === 'without-recording' && session.hasRecording) {
+                    continue;
+                }
+                if (health === 'good' && score < 80) {
+                    continue;
+                }
+                if (health === 'medium' && !(score >= 60 && score < 80)) {
+                    continue;
+                }
+                if (health === 'poor' && !(score > 0 && score < 60)) {
+                    continue;
+                }
+                if (health === 'na' && !(score === undefined || score === null || score < 0 || score === 0)) {
+                    continue;
+                }
+
+                results.push(session);
+            }
+
+            return results;
+        }
+
+        function populateTypeFilter() {
+            var typeFilter = document.getElementById('typeFilter');
+            var currentValue = typeFilter.value;
+            var seen = {};
+            var types = [];
+            var i;
+            var type;
+
+            for (i = 0; i < sessions.length; i++) {
+                type = sessions[i].type;
+                if (type && !seen[type]) {
+                    seen[type] = true;
+                    types.push(type);
+                }
+            }
+
+            types.sort();
+            typeFilter.innerHTML = '<option value="all">All types</option>';
+            for (i = 0; i < types.length; i++) {
+                typeFilter.innerHTML += '<option value="' + escapeHtml(types[i]) + '">' + escapeHtml(types[i]) + '</option>';
+            }
+
+            typeFilter.value = seen[currentValue] ? currentValue : 'all';
+        }
+
+        function updateLastRefreshed() {
+            var meta = document.getElementById('sessionMeta');
+            var now = new Date();
+            var stamp = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            var countText = filteredSessions.length + ' shown / ' + sessions.length + ' total';
+            meta.textContent = countText + ' - Last refreshed ' + stamp;
+        }
+
+        function updateSessionMeta() {
+            var meta = document.getElementById('sessionMeta');
+            var countText = filteredSessions.length + ' shown / ' + sessions.length + ' total';
+            var refreshText = meta.textContent.indexOf(' - ') !== -1 ? meta.textContent.split(' - ')[1] : 'Not refreshed yet';
+            meta.textContent = countText + ' - ' + refreshText;
+        }
+
+        function findSessionByFileName(fileName) {
+            var i;
+            for (i = 0; i < sessions.length; i++) {
+                if (sessions[i].fileName === fileName) {
+                    return sessions[i];
+                }
+            }
+            return {};
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function escapeJsString(value) {
+            return String(value || '')
+                .replace(/\\/g, '\\\\')
+                .replace(/'/g, "\\'");
+        }
+
+        document.getElementById('searchInput').addEventListener('input', renderSessions);
+        document.getElementById('typeFilter').addEventListener('change', renderSessions);
+        document.getElementById('healthFilter').addEventListener('change', renderSessions);
+        document.getElementById('recordingFilter').addEventListener('change', renderSessions);
+        document.getElementById('copyJsonButton').addEventListener('click', function() {
+            var button = document.getElementById('copyJsonButton');
+            if (!currentSessionJson) {
+                return;
+            }
+
+            navigator.clipboard.writeText(currentSessionJson)
+                .then(function() {
+                    button.innerHTML = '<i class="bi bi-check2"></i> Copied';
+                    setTimeout(function() {
+                        button.innerHTML = '<i class="bi bi-clipboard"></i> Copy JSON';
+                    }, 1500);
+                })
+                .catch(function() {
+                    button.innerHTML = '<i class="bi bi-x-circle"></i> Copy failed';
+                    setTimeout(function() {
+                        button.innerHTML = '<i class="bi bi-clipboard"></i> Copy JSON';
+                    }, 1500);
+                });
+        });
+
         function formatDate(timestamp) {
             if (!timestamp) return 'Unknown';
             const date = new Date(timestamp);
