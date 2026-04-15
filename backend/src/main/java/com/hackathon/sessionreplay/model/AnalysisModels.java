@@ -40,6 +40,7 @@ public class AnalysisModels {
     public record BugDiagnosis(
             Object rootCause,
             Object bugReport,
-            Object reproductionSteps
+            Object reproductionSteps,
+            Object serverLogSummary
     ) {}
 }
