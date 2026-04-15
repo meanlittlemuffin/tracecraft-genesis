@@ -12,6 +12,7 @@ const exportBtn = document.getElementById('exportBtn');
 const analyzeBtn = document.getElementById('analyzeBtn');
 const networkBtn = document.getElementById('networkBtn');
 const bugBtn = document.getElementById('bugBtn');
+const codeFixBtn = document.getElementById('codeFixBtn');
 const clearBtn = document.getElementById('clearBtn');
 const actionButtons = document.getElementById('actionButtons');
 const apiStatusEl = document.getElementById('apiStatus');
@@ -42,15 +43,17 @@ const vitalEls = {
 let isRecording = false;
 let sessionData = null;
 let pollInterval = null;
+let codeFixReadySessionKey = '';
 
 // ──────────────────────────────────────────────
 //  INIT
 // ──────────────────────────────────────────────
 
 async function init() {
-    const result = await chrome.storage.local.get(['isRecording', 'sessionData']);
+    const result = await chrome.storage.local.get(['isRecording', 'sessionData', 'codeFixReadySessionKey']);
     isRecording = result.isRecording || false;
     sessionData = result.sessionData || null;
+    codeFixReadySessionKey = result.codeFixReadySessionKey || '';
     updateUI();
     if (sessionData) updateStats(sessionData);
     if (isRecording) startPolling();
@@ -73,11 +76,13 @@ function updateUI() {
             sessionData.networkCalls.length > 0 ||
             sessionData.errors.length > 0
         );
+        const hasCodeFix = hasData && codeFixReadySessionKey === getSessionKey(sessionData);
         statusEl.textContent = hasData ? 'Recording Available' : 'Ready';
         statusEl.className = hasData ? 'status has-data' : 'status';
         startBtn.disabled = false;
         stopBtn.disabled = true;
         actionButtons.style.display = hasData ? 'flex' : 'none';
+        codeFixBtn.disabled = !hasCodeFix;
     }
 }
 
@@ -174,6 +179,8 @@ startBtn.addEventListener('click', async function () {
         if (response && response.success) {
             isRecording = true;
             sessionData = null;
+            codeFixReadySessionKey = '';
+            chrome.storage.local.remove('codeFixReadySessionKey');
             updateUI();
             resetStats();
             startPolling();
@@ -238,6 +245,7 @@ exportBtn.addEventListener('click', function () {
 analyzeBtn.addEventListener('click', function () { sendToApi('/analyze', 'Full Analysis'); });
 networkBtn.addEventListener('click', function () { sendToApi('/network-bottlenecks', 'Network Bottleneck Analysis'); });
 bugBtn.addEventListener('click', function () { sendToApi('/bug-diagnosis', 'Bug Diagnosis'); });
+codeFixBtn.addEventListener('click', function () { sendToApi('/code-fix-suggestion', 'Code Fix Suggestion'); });
 
 async function sendToApi(endpoint, label) {
     if (!sessionData) return;
@@ -267,6 +275,12 @@ async function sendToApi(endpoint, label) {
             var errMsg = result.error || ('HTTP ' + response.status + ': ' + response.statusText);
             showStatus(errMsg, 'error');
             return;
+        }
+
+        if (endpoint === '/bug-diagnosis') {
+            codeFixReadySessionKey = getSessionKey(sessionData);
+            chrome.storage.local.set({ codeFixReadySessionKey: codeFixReadySessionKey });
+            updateUI();
         }
 
         showStatus(label + ' complete!', 'success');
@@ -431,6 +445,17 @@ function detectRageClicks(clicks) {
     return rageClicks;
 }
 
+function getSessionKey(data) {
+    if (!data || !data.metadata) return '';
+    return [
+        data.metadata.startTime || '',
+        data.metadata.startUrl || '',
+        (data.networkCalls || []).length,
+        (data.clicks || []).length,
+        (data.errors || []).length
+    ].join('|');
+}
+
 // ──────────────────────────────────────────────
 //  CLEAR
 // ──────────────────────────────────────────────
@@ -438,6 +463,7 @@ function detectRageClicks(clicks) {
 clearBtn.addEventListener('click', async function () {
     sessionData = null;
     isRecording = false;
+    codeFixReadySessionKey = '';
     await chrome.storage.local.clear();
     resetStats();
     updateUI();
@@ -465,9 +491,11 @@ function showStatus(message, type) {
 }
 
 function setAnalysisButtonsDisabled(disabled) {
-    [analyzeBtn, networkBtn, bugBtn, exportBtn].forEach(function (btn) {
-        btn.disabled = disabled;
-    });
+    analyzeBtn.disabled = disabled;
+    networkBtn.disabled = disabled;
+    bugBtn.disabled = disabled;
+    exportBtn.disabled = disabled;
+    codeFixBtn.disabled = disabled || codeFixReadySessionKey !== getSessionKey(sessionData);
 }
 
 // Start

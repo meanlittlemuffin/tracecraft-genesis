@@ -5,8 +5,11 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hackathon.sessionreplay.config.TracecraftProperties;
 import com.hackathon.sessionreplay.model.AnalysisModels.BugDiagnosis;
+import com.hackathon.sessionreplay.model.AnalysisModels.CodeFixSuggestion;
 import com.hackathon.sessionreplay.model.AnalysisModels.NetworkBottleneckReport;
 import com.hackathon.sessionreplay.model.AnalysisModels.SessionAnalysis;
+import com.hackathon.sessionreplay.service.CodeContextService.CodeContext;
+import com.hackathon.sessionreplay.service.CodeContextService.SourceSnippet;
 import com.hackathon.sessionreplay.service.IncidentPacketService.IncidentPacket;
 import com.hackathon.sessionreplay.service.IncidentPacketService.PacketMode;
 import org.slf4j.Logger;
@@ -20,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class AIService {
@@ -31,15 +34,17 @@ public class AIService {
     private final ObjectMapper objectMapper;
     private final ServerLogService serverLogService;
     private final IncidentPacketService incidentPacketService;
+    private final CodeContextService codeContextService;
     private final TracecraftProperties properties;
     private final ConcurrentHashMap<String, CachedResponse> cache = new ConcurrentHashMap<>();
-    private final AtomicLong lastGeminiAttemptEpochMs = new AtomicLong(0L);
+    private final AtomicReference<RecentAttempt> lastModelAttempt = new AtomicReference<>();
 
     public AIService(
             ChatClient.Builder builder,
             ObjectMapper objectMapper,
             ServerLogService serverLogService,
             IncidentPacketService incidentPacketService,
+            CodeContextService codeContextService,
             TracecraftProperties properties
     ) {
         this.chatClient = builder
@@ -49,6 +54,7 @@ public class AIService {
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         this.serverLogService = serverLogService;
         this.incidentPacketService = incidentPacketService;
+        this.codeContextService = codeContextService;
         this.properties = properties;
     }
 
@@ -155,19 +161,66 @@ public class AIService {
         return ensureServerLogSummary(parsed, serverLogs);
     }
 
+    public CodeFixSuggestion suggestCodeFix(Map<String, Object> recording) {
+        ServerLogService.ServerLogContext serverLogs = serverLogService.buildContext(recording);
+        IncidentPacket incidentPacket = incidentPacketService.buildPacket(recording, serverLogs, PacketMode.BUG_DIAGNOSIS);
+        BugDiagnosis diagnosis = diagnoseBug(recording);
+        CodeContext codeContext = codeContextService.buildContext(recording, incidentPacket, serverLogs, diagnosis);
+
+        if (!codeContext.supported() || codeContext.snippets().isEmpty()) {
+            return unsupportedCodeFix(codeContext.summary(), codeContext.matchedRoute(), codeContext.snippets());
+        }
+
+        String raw = callModel(
+                "code-fix-suggestion",
+                incidentPacket.hash() + ":" + codeContext.hash(),
+                incidentPacket.hash(),
+                """
+                        You are a senior Java engineer reviewing a localhost hackathon demo app.
+                        You will receive a bug diagnosis, curated browser/server incident evidence, and a very small set of demo-app code snippets.
+                        Suggest the most likely manual code fix for the bug.
+                        Only use the supplied snippets and evidence. Do not invent files, classes, methods, or framework behavior that are not present.
+                        Prefer a focused, low-risk fix over a broad refactor.
+                        If evidence is incomplete, say so in the disclaimer instead of pretending certainty.
+                        You MUST respond with ONLY raw JSON. No markdown code fences, no explanation, no text before or after the JSON.""",
+                "Use the diagnosis and code context to suggest a likely manual fix for this demo-app bug.\n"
+                        + "Respond with a JSON object containing:\n"
+                        + "- \"summary\": one-line description of the likely fix\n"
+                        + "- \"confidence\": string like \"78%\"\n"
+                        + "- \"matchedRoute\": request path associated with the failure\n"
+                        + "- \"impactedFiles\": array of objects with path, className, methodName, reason\n"
+                        + "- \"whyTheseFiles\": array of short strings explaining why each file was selected\n"
+                        + "- \"suggestedChange\": concise prose description of the change\n"
+                        + "- \"beforeSnippet\": string containing the current relevant code\n"
+                        + "- \"afterSnippet\": string containing the proposed replacement or revision\n"
+                        + "- \"validationSteps\": array of short manual verification steps\n"
+                        + "- \"disclaimer\": optional short note if the fix is best-effort or evidence is incomplete\n\n"
+                        + "DIAGNOSIS_SUMMARY:\n" + formatDiagnosisSummary(diagnosis) + "\n\n"
+                        + "INCIDENT_PACKET:\n" + incidentPacket.json() + "\n\n"
+                        + "CODE_CONTEXT:\n" + codeContext.json()
+        );
+
+        CodeFixSuggestion parsed = parseResponse(raw, CodeFixSuggestion.class);
+        return ensureCodeFixDefaults(parsed, codeContext);
+    }
+
     private String callModel(String endpoint, IncidentPacket incidentPacket, String systemPrompt, String userPromptPrefix) {
-        String cacheKey = endpoint + ":" + incidentPacket.hash();
+        return callModel(endpoint, incidentPacket.hash(), incidentPacket.hash(), systemPrompt, userPromptPrefix + incidentPacket.json());
+    }
+
+    private String callModel(String endpoint, String cacheKeyMaterial, String flowKey, String systemPrompt, String userPrompt) {
+        String cacheKey = endpoint + ":" + cacheKeyMaterial;
         CachedResponse cached = getValidCachedResponse(cacheKey);
         if (cached != null) {
-            log.info("Returning cached {} response for packet {}", endpoint, incidentPacket.hash());
+            log.info("Returning cached {} response for key {}", endpoint, cacheKeyMaterial);
             return cached.raw();
         }
 
-        enforceCooldown(endpoint);
+        enforceCooldown(endpoint, flowKey);
 
         String raw = chatClient.prompt()
                 .system(systemPrompt)
-                .user(userPromptPrefix + incidentPacket.json())
+                .user(userPrompt)
                 .call()
                 .content();
 
@@ -193,16 +246,24 @@ public class AIService {
         return cached;
     }
 
-    private void enforceCooldown(String endpoint) {
+    private void enforceCooldown(String endpoint, String flowKey) {
         long cooldownMs = properties.getAi().getCooldownSeconds() * 1000L;
         long now = Instant.now().toEpochMilli();
-        long lastAttempt = lastGeminiAttemptEpochMs.get();
-        if (lastAttempt > 0 && now - lastAttempt < cooldownMs) {
-            long remainingMs = cooldownMs - (now - lastAttempt);
+        RecentAttempt lastAttempt = lastModelAttempt.get();
+        if (lastAttempt != null && now - lastAttempt.epochMs() < cooldownMs) {
+            boolean allowFollowUp = "code-fix-suggestion".equals(endpoint)
+                    && "bug-diagnosis".equals(lastAttempt.endpoint())
+                    && String.valueOf(flowKey).equals(lastAttempt.flowKey());
+            if (allowFollowUp) {
+                lastModelAttempt.set(new RecentAttempt(endpoint, flowKey, now));
+                return;
+            }
+
+            long remainingMs = cooldownMs - (now - lastAttempt.epochMs());
             long remainingSeconds = Math.max(1L, (remainingMs + 999L) / 1000L);
             throw new RuntimeException("429 Gemini free-tier cooldown active for `" + endpoint + "`. Please wait " + remainingSeconds + " seconds and try again.");
         }
-        lastGeminiAttemptEpochMs.set(now);
+        lastModelAttempt.set(new RecentAttempt(endpoint, flowKey, now));
     }
 
     private BugDiagnosis ensureServerLogSummary(BugDiagnosis diagnosis, ServerLogService.ServerLogContext serverLogs) {
@@ -235,6 +296,102 @@ public class AIService {
                 diagnosis.reproductionSteps(),
                 fallback
         );
+    }
+
+    private CodeFixSuggestion ensureCodeFixDefaults(CodeFixSuggestion suggestion, CodeContext codeContext) {
+        Object impactedFiles = suggestion.impactedFiles();
+        if (impactedFiles == null || (impactedFiles instanceof List<?> list && list.isEmpty())) {
+            impactedFiles = codeContext.snippets().stream()
+                    .map(this::toImpactedFile)
+                    .toList();
+        }
+
+        Object whyTheseFiles = suggestion.whyTheseFiles();
+        if (whyTheseFiles == null || (whyTheseFiles instanceof List<?> list && list.isEmpty())) {
+            whyTheseFiles = codeContext.snippets().stream()
+                    .map(SourceSnippet::reason)
+                    .toList();
+        }
+
+        Object validationSteps = suggestion.validationSteps();
+        if (validationSteps == null || (validationSteps instanceof List<?> list && list.isEmpty())) {
+            validationSteps = List.of(
+                    "Re-run the failing flow in the demo app and confirm the error no longer reproduces.",
+                    "Verify the affected endpoint now returns the expected HTTP status and payload.",
+                    "Run Bug Diagnosis again to confirm the original failure evidence is gone."
+            );
+        }
+
+        Object beforeSnippet = suggestion.beforeSnippet();
+        if ((beforeSnippet == null || String.valueOf(beforeSnippet).isBlank()) && !codeContext.snippets().isEmpty()) {
+            beforeSnippet = codeContext.snippets().get(0).snippet();
+        }
+
+        Object disclaimer = suggestion.disclaimer();
+        if (disclaimer == null || String.valueOf(disclaimer).isBlank()) {
+            disclaimer = "Best-effort demo-app fix suggestion. Review manually before applying.";
+        }
+
+        Object matchedRoute = suggestion.matchedRoute();
+        if (matchedRoute == null || String.valueOf(matchedRoute).isBlank()) {
+            matchedRoute = codeContext.matchedRoute();
+        }
+
+        String summary = suggestion.summary();
+        if (summary == null || summary.isBlank()) {
+            summary = "Suggested a likely code fix for the matched demo-app failure path.";
+        }
+
+        return new CodeFixSuggestion(
+                summary,
+                suggestion.confidence(),
+                matchedRoute,
+                impactedFiles,
+                whyTheseFiles,
+                suggestion.suggestedChange(),
+                beforeSnippet,
+                suggestion.afterSnippet(),
+                validationSteps,
+                disclaimer
+        );
+    }
+
+    private CodeFixSuggestion unsupportedCodeFix(String message, String matchedRoute, List<SourceSnippet> snippets) {
+        Object impactedFiles = snippets.stream().map(this::toImpactedFile).toList();
+        return new CodeFixSuggestion(
+                "Unable to produce a high-confidence code fix suggestion from the available demo-app context.",
+                "0%",
+                matchedRoute,
+                impactedFiles,
+                snippets.stream().map(SourceSnippet::reason).toList(),
+                "Collect a localhost demo-app recording with a matching failing endpoint, then rerun Bug Diagnosis before requesting a code fix.",
+                snippets.isEmpty() ? "" : snippets.get(0).snippet(),
+                "",
+                List.of("Record a localhost demo-app failure.", "Run Bug Diagnosis successfully.", "Retry Suggest Code Fix."),
+                message
+        );
+    }
+
+    private Map<String, Object> toImpactedFile(SourceSnippet snippet) {
+        Map<String, Object> file = new LinkedHashMap<>();
+        file.put("path", snippet.filePath());
+        file.put("className", snippet.className());
+        file.put("methodName", snippet.methodName());
+        file.put("reason", snippet.reason());
+        return file;
+    }
+
+    private String formatDiagnosisSummary(BugDiagnosis diagnosis) {
+        Map<String, Object> summary = new LinkedHashMap<>();
+        summary.put("rootCause", diagnosis.rootCause());
+        summary.put("bugReport", diagnosis.bugReport());
+        summary.put("reproductionSteps", diagnosis.reproductionSteps());
+        summary.put("serverLogSummary", diagnosis.serverLogSummary());
+        try {
+            return objectMapper.writeValueAsString(summary);
+        } catch (JsonProcessingException e) {
+            return String.valueOf(summary);
+        }
     }
 
     private <T> T parseResponse(String raw, Class<T> type) {
@@ -354,4 +511,6 @@ public class AIService {
     }
 
     private record CachedResponse(String raw, Instant expiresAt) {}
+
+    private record RecentAttempt(String endpoint, String flowKey, long epochMs) {}
 }

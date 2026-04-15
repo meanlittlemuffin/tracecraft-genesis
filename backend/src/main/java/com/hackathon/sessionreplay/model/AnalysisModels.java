@@ -43,4 +43,18 @@ public class AnalysisModels {
             Object reproductionSteps,
             Object serverLogSummary
     ) {}
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public record CodeFixSuggestion(
+            String summary,
+            Object confidence,
+            Object matchedRoute,
+            Object impactedFiles,
+            Object whyTheseFiles,
+            Object suggestedChange,
+            Object beforeSnippet,
+            Object afterSnippet,
+            Object validationSteps,
+            Object disclaimer
+    ) {}
 }

@@ -1,0 +1,350 @@
+# CODE_FIX_SUGGESTION_PLAN
+
+## Summary
+Extend TraceCraft's current hackathon prototype with a new separate action, `Suggest Code Fix`, that runs only after a successful `Bug Diagnosis`. This feature reuses the existing browser recording + server-log RCA pipeline, then retrieves a small, targeted slice of `demo-app` source code and asks the model to propose a likely manual fix.
+
+This keeps the current prototype flow intact, avoids overloading `Bug Diagnosis`, and is safer and more reliable on a constrained model budget.
+
+## Product Goal
+The user records a failing browser session in the extension, runs `Bug Diagnosis`, and then clicks `Suggest Code Fix`.
+
+The system should:
+- identify the likely failing route and root cause from browser evidence and server logs
+- inspect only relevant `demo-app` code
+- return a structured fix suggestion with the most likely impacted file and code change
+- avoid claiming certainty when evidence is weak
+- never auto-edit code in v1
+
+Success criteria:
+- the result points to the correct `demo-app` area for the simulated failure
+- the suggested fix is understandable and plausibly actionable
+- the flow is stable enough for a hackathon demo
+- rate limits and prompt size remain manageable
+
+## User Flow
+1. User records a session in the browser extension.
+2. User clicks `Bug Diagnosis`.
+3. Backend returns the current diagnosis result as it does today.
+4. Popup enables the new `Suggest Code Fix` button.
+5. User clicks `Suggest Code Fix`.
+6. Backend:
+   - rebuilds or reuses the incident packet
+   - derives RCA clues from the diagnosis path
+   - retrieves relevant `demo-app` source snippets
+   - sends diagnosis evidence + code context to the model
+7. Backend returns a structured `CodeFixSuggestion` response.
+8. Popup downloads the result as JSON, consistent with the existing prototype pattern.
+
+## Why Separate Button
+This feature should be implemented as a separate button rather than merged into `Bug Diagnosis` because:
+
+- it keeps the current diagnosis endpoint stable
+- it reduces prompt and response size per request
+- it allows diagnosis to succeed even if fix generation is weak
+- it creates a clearer demo narrative: first identify the bug, then suggest the code fix
+- it allows caching and debugging of diagnosis and fix suggestion independently
+
+## Scope
+
+### In scope for v1
+- `demo-app` source code only
+- Java source under `demo-app/src/main/java`
+- route-to-controller matching
+- stack-trace and exception-class matching
+- structured fix suggestion with snippets
+- manual-review-only output
+
+### Out of scope for v1
+- auto-applying patches
+- editing files
+- generating guaranteed-correct diffs
+- searching backend and extension code
+- arbitrary multi-project source analysis
+- AST-based Java analysis
+- IDE-level symbol resolution
+
+## Architecture Changes
+
+### Existing pieces to reuse
+The feature should reuse the current backend pipeline:
+- browser recording payload from the extension
+- `ServerLogService`
+- `IncidentPacketService`
+- `AIService` diagnosis flow
+- existing cooldown and cache behavior patterns
+
+### New backend pieces
+Add the following:
+- `POST /api/code-fix-suggestion`
+- `CodeFixSuggestion` response model
+- `CodeContextService` to retrieve relevant `demo-app` code
+- optional config under `tracecraft.code-context`
+
+## Endpoint Design
+
+### New endpoint
+`POST /api/code-fix-suggestion`
+
+### Request
+Use the same request payload shape already sent to:
+- `/api/analyze`
+- `/api/network-bottlenecks`
+- `/api/bug-diagnosis`
+
+No extension payload changes are needed.
+
+### Response shape
+Add a structured response model such as:
+
+- `summary`: one-line explanation of the likely fix
+- `confidence`: string such as `72%`
+- `matchedRoute`: route/path associated with the failure
+- `impactedFiles`: list of matched files
+- `whyTheseFiles`: explanation of why these files were chosen
+- `suggestedChange`: short prose description of the change
+- `beforeSnippet`: current relevant code
+- `afterSnippet`: proposed replacement or revised code
+- `validationSteps`: list of steps to verify the change
+- `disclaimer`: optional note when evidence is incomplete
+
+Example intent:
+- explain what to change
+- show where
+- show a candidate code rewrite
+- explain how to validate it
+
+## Retrieval Strategy
+
+### New service: `CodeContextService`
+Create a new backend service responsible for narrowing the `demo-app` source to only the most relevant code snippets.
+
+Responsibilities:
+- scan `demo-app/src/main/java`
+- discover Spring route annotations
+- map request paths to controller methods
+- match stack-trace class names from logs
+- retrieve small snippets around matched methods
+- return compact code context metadata for the prompt
+
+### Inputs to retrieval
+Use these clues, in priority order:
+
+1. failing request path from browser recording
+2. correlated request candidates from server-log matching
+3. route/path hints from diagnosis output
+4. exception class names from matched server logs
+5. fallback to known exception handler and matched controller files
+
+### Matching heuristics
+For v1, use lightweight heuristics rather than full parsing:
+
+- file scan for `@RequestMapping`, `@GetMapping`, `@PostMapping`
+- class-level base path plus method-level path combination
+- match endpoint path like `/api/fail-500` or `/api/validate`
+- extract class names from stack traces such as `DemoApiController` or `DemoExceptionHandler`
+- if route match is found, prefer that file
+- if stack-trace match confirms the same file, raise confidence
+- if no route match exists, fall back to exception handler or top server-log class hit
+
+### Code snippet extraction
+For matched files:
+- include file path
+- include class name
+- include method name if determinable
+- include a bounded line window around the matched method
+- include only a few files total
+
+Default limits:
+- max files: 3
+- max snippet lines per file: 40-60
+- prefer one primary file and one supporting file
+- never send full file contents unless the file is very small
+
+## Data Flow
+
+### Step 1: RCA reuse
+When `/api/code-fix-suggestion` is called:
+- build the same incident packet used for diagnosis
+- build server-log context using the current `ServerLogService`
+- derive likely failing route and evidence from the packet
+- optionally reuse cached diagnosis if the same recording was already diagnosed
+
+### Step 2: Code retrieval
+`CodeContextService` should:
+- inspect the inferred failing route
+- locate matching controller methods
+- inspect stack-trace or error references
+- return compact `codeContext` metadata and snippets
+
+### Step 3: Prompt assembly
+Build a compact prompt containing:
+- incident summary
+- failing timeline highlights
+- relevant network failure evidence
+- server log excerpts
+- retrieved code snippets with file paths and line hints
+
+### Step 4: Model output
+Ask the model to produce a structured `CodeFixSuggestion` response and explicitly forbid unsupported guessing.
+
+## Prompt Design
+
+### System prompt goals
+The model should be told:
+- it is reviewing a hackathon demo app
+- browser evidence, server logs, and code snippets all refer to the same failing flow
+- it must propose a likely manual fix
+- it must not invent files, symbols, or methods not included in the provided context
+- it must admit uncertainty when evidence is weak
+- it must return only raw JSON
+
+### User prompt contents
+The prompt should include:
+- brief task statement
+- required response schema
+- compact incident packet
+- compact code context block
+
+### Behavior rules for the model
+The model should:
+- prefer the strongest route/log/code match
+- return one primary fix path in v1
+- include before/after code only for the supplied snippet region
+- avoid broad refactors
+- avoid speculative architecture changes
+- focus on the smallest reasonable code fix
+
+## Caching and Rate Limits
+Reuse the current backend design philosophy:
+- cache fix suggestions
+- enforce cooldown similar to existing Gemini-backed endpoints
+- key cache by:
+  - endpoint name
+  - incident packet hash
+  - code context hash
+
+Benefits:
+- repeated clicks do not trigger repeated model calls
+- the demo feels more responsive
+- free-tier limits are protected
+
+## Configuration
+Add optional backend config under `tracecraft.code-context`:
+
+- `enabled`
+- `source-root`
+- `max-files`
+- `max-snippet-lines`
+
+Suggested defaults:
+- `enabled: true`
+- `source-root: ${user.dir}/../demo-app/src/main/java`
+- `max-files: 3`
+- `max-snippet-lines: 50`
+
+No frontend config changes are required.
+
+## Popup Changes
+Update the extension popup to add a new action button:
+
+- label: `Suggest Code Fix`
+- hidden or disabled until `Bug Diagnosis` succeeds
+- uses the same loading and error state pattern as existing analysis buttons
+- downloads JSON result on success
+
+UI behavior:
+- before diagnosis: button unavailable
+- after successful diagnosis for the current recording: button enabled
+- if diagnosis fails: button remains unavailable
+- if fix generation fails: show friendly backend error without breaking diagnosis
+
+## Error Handling
+The new endpoint should return friendly structured errors for:
+
+- unsupported non-localhost session
+- no matching `demo-app` route found
+- no readable source files in configured root
+- cooldown active
+- invalid AI JSON response
+- low-confidence evidence
+
+For low-confidence cases, still return a structured result with:
+- disclaimer
+- best guess file if any
+- explanation of uncertainty
+
+## Testing Plan
+
+### Core scenarios
+1. Trigger `GET /api/fail-500`
+- diagnosis should identify the failing route
+- fix suggestion should point to `DemoApiController`
+- suggestion should explain the forced exception path
+- validation steps should confirm successful behavior after code change
+
+2. Trigger `POST /api/validate` with bad email
+- diagnosis should identify validation failure
+- fix suggestion should point to the validation method or related handling path
+- suggestion should not confuse it with the 500-flow
+
+3. Trigger `GET /api/malformed-json`
+- suggestion should identify the endpoint returning invalid JSON
+- after-snippet should produce valid JSON response behavior
+
+### UI scenarios
+4. Verify the button is disabled before diagnosis
+5. Verify the button becomes available after successful diagnosis
+6. Verify repeated clicks use cached results where possible
+
+### Edge cases
+7. Non-localhost session should return `unsupported in v1`
+8. Missing source root should return a clear backend error
+9. No route match but stack trace match should still produce a bounded suggestion
+10. Low-evidence cases should return a disclaimer instead of fabricated certainty
+
+## Implementation Notes
+
+### Minimal parsing approach
+For the hackathon prototype, do not build a full parser. Use:
+- file scanning
+- regex or simple text parsing for route annotations
+- line-window extraction around matched methods
+
+This is enough because:
+- `demo-app` is small
+- route patterns are predictable
+- deterministic failures make heuristic matching acceptable
+
+### Confidence strategy
+Confidence should be driven by evidence quality:
+- highest confidence when route match + server-log match + code match all align
+- medium confidence when route match exists but logs are weak
+- lower confidence when only exception handler or stack-trace hints are available
+
+### Safety strategy
+The returned suggestion must be framed as:
+- candidate fix
+- manual review required
+- based only on supplied evidence and snippets
+
+Do not imply:
+- guaranteed correctness
+- production readiness
+- automatic patch applicability
+
+## Acceptance Criteria
+This plan is complete when the implementation can:
+- preserve current `Bug Diagnosis` behavior
+- expose a new `Suggest Code Fix` action after diagnosis
+- analyze only `demo-app` source files
+- retrieve code context from matched routes and logs
+- return structured fix suggestions with before/after snippets
+- handle unsupported or weak-evidence cases safely
+- remain stable within current hackathon constraints
+
+## Assumptions
+- the backend and `demo-app` are in the same local workspace
+- the backend can read `demo-app` source files directly
+- `demo-app` remains small and route-driven
+- v1 is for demo value, not autonomous coding
+- manual code review remains part of the intended workflow

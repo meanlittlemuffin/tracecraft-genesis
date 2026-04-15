@@ -54,6 +54,16 @@ public class RecordingController {
         }
     }
 
+    @PostMapping("/code-fix-suggestion")
+    public ResponseEntity<?> suggestCodeFix(@RequestBody Map<String, Object> recording) {
+        try {
+            CodeFixSuggestion suggestion = aiService.suggestCodeFix(recording);
+            return ResponseEntity.ok(suggestion);
+        } catch (Exception e) {
+            return handleAiError(e, "code-fix-suggestion");
+        }
+    }
+
     @GetMapping("/health")
     public ResponseEntity<Map<String, String>> health() {
         return ResponseEntity.ok(Map.of("status", "UP"));
