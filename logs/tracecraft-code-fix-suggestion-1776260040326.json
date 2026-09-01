@@ -1,0 +1,25 @@
+{
+  "summary": "Add a generic server-side exception handler to ensure consistent JSON error responses for unhandled exceptions.",
+  "confidence": "30%",
+  "matchedRoute": "null",
+  "impactedFiles": [
+    {
+      "path": "com/hackathon/demo/api/DemoExceptionHandler.java",
+      "className": "DemoExceptionHandler",
+      "methodName": "handleGenericException",
+      "reason": "The client-side error message 'Demo action failed: {}' suggests a generic or unformatted error. While the primary issue is client-side (no network calls), ensuring all server-side errors return a consistent JSON format can prevent similar generic client-side display issues if a network request were to be made and an unhandled server error occurred."
+    }
+  ],
+  "whyTheseFiles": [
+    "The `DemoExceptionHandler` is responsible for centralizing server-side error responses. Adding a catch-all handler here ensures that any unhandled server exceptions (beyond `IllegalStateException` and `IllegalArgumentException`) will also return a structured JSON response, which is better for client-side consumption than a default HTML error page."
+  ],
+  "suggestedChange": "Add a new `@ExceptionHandler` method in `DemoExceptionHandler` to catch `Exception.class`. This method should return a `ResponseEntity` with a consistent JSON body containing 'error', 'message', and 'path' for any unhandled server-side exceptions. This ensures that if the client-side code eventually makes a request and encounters an unexpected server error, it receives a parseable JSON response instead of a generic or HTML error, which could contribute to the 'Demo action failed: {}' type of message.",
+  "beforeSnippet": "  39: }",
+  "afterSnippet": "  39: \n  40:     @ExceptionHandler(Exception.class)\n  41:     public ResponseEntity<Map<String, Object>> handleGenericException(Exception exception, HttpServletRequest request) {\n  42:         log.error(\"An unexpected error occurred for {} {}\", request.getMethod(), request.getRequestURI(), exception);\n  43:         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)\n  44:                 .body(Map.of(\n  45:                         \"error\", \"UNEXPECTED_SERVER_ERROR\",\n  46:                         \"message\", \"An unexpected server error occurred.\",\n  47:                         \"path\", request.getRequestURI()\n  48:                 ));\n  49:     }\n  50: }",
+  "validationSteps": [
+    "Introduce a new, unhandled exception type in `DemoApiController` (e.g., `throw new RuntimeException(\"Test generic error\");`).",
+    "Make a network request to the endpoint triggering this new exception.",
+    "Verify that the server responds with a 500 status code and a JSON body containing 'UNEXPECTED_SERVER_ERROR' and a generic message, as defined in the new handler."
+  ],
+  "disclaimer": "The primary diagnosis indicates a client-side JavaScript error preventing any network requests. The provided code snippets are exclusively server-side Java. This suggested fix improves server-side error handling for unhandled exceptions, which is a good practice and could prevent generic client-side error messages if a network call *were* to be made and an unhandled server error occurred. However, it does not directly address the 'no network calls' aspect of the reported bug, as the root cause is likely in the client-side code not provided."
+}

@@ -38,3 +38,4 @@ backend/output.log
 # API Keys (keep in env, not repo)
 *api*.txt
 *key*.txt
+/.metadata/
